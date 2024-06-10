@@ -4,25 +4,25 @@
         <p>Fill in the form to add new university to the database</p>
 
         <div class="form-section">
-            <input class="form-control" type="text" placeholder="University Name" aria-label="default input example">
-            <select class="form-select" aria-label="Default select example">
+            <input v-model="universityName" class="form-control" type="text" placeholder="University Name" aria-label="default input example">
+            <select v-model="universityCity" class="form-select" aria-label="Default select example">
                 <option selected>University Area</option>
-                <option value="1">Stockholm</option>
-                <option value="2">Gothenburg</option>
-                <option value="3">Lund</option>
-                <option value="4">Uppsala</option>
-                <option value="5">Umeå</option>
-                <option value="6">Linköping</option>
-                <option value="7">Luleå</option>
-                <option value="8">Karlstad</option>
-                <option value="9">Örebro</option>
-                <option value="10">Jönköping</option>
-                <option value="11">Malmö</option>
-                
-                
-                
+                <option value="스톡홀름">Stockholm</option>
+                <option value="예테보리">Gothenburg</option>
+                <option value="룬드">Lund</option>
+                <option value="웁살라">Uppsala</option>
+                <option value="우메오">Umeå</option>
+                <option value="린쇼핑">Linköping</option>
+                <option value="룰레오">Luleå</option>
+                <option value="카를스타드">Karlstad</option>
+                <option value="외레브로">Örebro</option>
+                <option value="옌셰핑">Jönköping</option>
+                <option value="말뫼">Malmö</option>
             </select>
+
+            <button @click="addUniversity" class="btn btn-primary">Add University</button>
         </div>
+        
     </div>
   </template>
   
@@ -61,24 +61,26 @@
     name: 'GothenburgUni',
     data: function () {
       return {
-        programNames: [],
-        programDescription: {},
-        uniLocation: ''
+        universityName: '',
+        universityCity: ''
+
       }
     },
     methods: {
-      async getProgramName() {
+      async addUniversity() {
         try {
-          const response = await axios.get("http://localhost:3000/api/programs/byUniversity?universityName=University%20of%20Gothenburg");
-          this.programNames = response.data.programs
-        } catch (error) {
-          console.error("Error fetching program names:", error);
+          const response = await axios.post("http://localhost:3000/api/universities/", {
+              name: this.universityName,
+              city: this.universityCity
+          });
+          console.log("Tried sending request", response)
+        }
+
+        catch (error) {
+          console.error("Error Posting New University: ", error)
         }
       }
     },
-    beforeMount() {
-      this.getProgramName();
-    }
   }
   </script>
   
