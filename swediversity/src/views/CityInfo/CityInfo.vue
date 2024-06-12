@@ -87,9 +87,10 @@
 </style>
 
 <script>
-import transportImage from '../assets/CityInfo/city_info_transport.jpg';
-import drinkImage from '../assets/CityInfo/city_info_drink.jpg';
-import travelImage from '../assets/CityInfo/city_info_travel.jpg';
+
+import transportImage from '../../assets/CityInfo/city_info_transport.jpg';
+import drinkImage from '../../assets/CityInfo/city_info_drink.jpg';
+import travelImage from '../../assets/CityInfo/city_info_travel.jpg';
 
 export default {
     name: 'CityInfo',

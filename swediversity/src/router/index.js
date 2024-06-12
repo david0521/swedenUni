@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import University from '../views/university.vue'
-import CityInfo from '../views/CityInfo.vue'
+import CityInfo from '../views/CityInfo/CityInfo.vue'
 import Admin from '../views/admin/admin.vue'
 import AddUni from '../views/admin/AddUni.vue'
 import AddProgram from '../views/admin/AddProgram.vue'
-import EatDrink from '../views/EatDrink.vue'
-import Travel from '../views/Travel.vue'
-import Transportation from '../views/Transportation.vue'
+import EatDrink from '../views/CityInfo/EatDrink.vue'
+import Travel from '../views/CityInfo/Travel.vue'
+import Transportation from '../views/CityInfo/Transportation.vue'
 
 
 const router = createRouter({
