@@ -1,4 +1,9 @@
 <template>
+  <div v-if="isAlertvisible" class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+    
+      <strong>{{ alertMessage }}</strong>
+      <button type="button" class="btn-close" @click="dismissAlert" aria-label="Close"></button>
+    </div>
   <div :style="{ backgroundImage: `url(${imageUrl})` }" class="photo-section">
     <h1 class="main-font">{{ universityName }}</h1>
   </div>
@@ -181,7 +186,9 @@ export default {
       imageUrl: '',
       programNames: [],
       programDescription: {},
-      uniLocation: ''
+      uniLocation: '',
+      isAlertvisible: false,
+      alertMessage: '',
     }
   },
   methods: {
@@ -191,7 +198,12 @@ export default {
         this.programNames = response.data.programs;
       } catch (error) {
         console.error("Error fetching program names:", error);
+        this.alertMessage = "프로그램을 가져오는데 오류가 있었습니다."
+        this.isAlertvisible = true;
       }
+    },
+    async dismissAlert() {
+      this.isAlertvisible = false;
     }
   },
   created() {
@@ -212,6 +224,8 @@ export default {
     }
     else {
       console.error('존재하지 않는 대학교:', uniName);
+      this.alertMessage = `${uniName}는 아직 시스템에 등록되지 않은 대학교입니다`
+      this.isAlertvisible = true;
     }
   }
 }
