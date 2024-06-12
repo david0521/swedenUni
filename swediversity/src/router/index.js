@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import GothenburgInfo from '../views/GothenburgUni.vue'
+import University from '../views/university.vue'
 import Admin from '../views/admin/admin.vue'
 import AddUni from '../views/admin/AddUni.vue'
 import AddProgram from '../views/admin/AddProgram.vue'
@@ -30,9 +30,9 @@ const router = createRouter({
             component: AddProgram
         },
         {
-            path: '/gothenburg-uni',
-            name: 'Gothenburg',
-            component: GothenburgInfo
+            path: '/university/:uniName',
+            name: 'University',
+            component: University
         },
         
     ]
