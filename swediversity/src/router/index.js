@@ -8,6 +8,7 @@ import AddProgram from '../views/admin/AddProgram.vue'
 import EatDrink from '../views/CityInfo/EatDrink.vue'
 import Travel from '../views/CityInfo/Travel.vue'
 import Transportation from '../views/CityInfo/Transportation.vue'
+import Login from '../views/Login.vue'
 
 
 const router = createRouter({
@@ -17,6 +18,11 @@ const router = createRouter({
             path: '/',
             name: 'home',
             component: HomeView
+        },
+        {
+            path: '/login',
+            name: 'Login',
+            component: Login
         },
         {
             path: '/admin',
