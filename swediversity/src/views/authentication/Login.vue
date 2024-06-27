@@ -24,10 +24,10 @@
                 </div>
                 <div class="other-option">
                     <div class="register">
-                        <button type="button" class="btn btn-link" style="color: gray">회원가입</button>
+                        <button type="button" class="btn btn-link" style="color: gray" @click="toRegistration">회원가입</button>
                     </div>
                     <div class="find-password">
-                        <button type="button" class="btn btn-link" style="color: gray">비밀번호 변경</button>
+                        <button type="button" class="btn btn-link" style="color: gray" @click="toPasswordChange">비밀번호 변경</button>
                     </div>
                 </div>
              </div>
@@ -127,6 +127,12 @@
         };
     },
     methods: {
+        toRegistration() {
+            this.$router.push('/consent');
+        },
+        toPasswordChange() {
+            this.$router.push('/forgot-password');
+        },
         async login() {
             try {
                 const response = await axios.post('http://localhost:3000/api/users/login', {
