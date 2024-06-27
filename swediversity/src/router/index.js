@@ -8,7 +8,9 @@ import AddProgram from '../views/admin/AddProgram.vue'
 import EatDrink from '../views/CityInfo/EatDrink.vue'
 import Travel from '../views/CityInfo/Travel.vue'
 import Transportation from '../views/CityInfo/Transportation.vue'
-import Login from '../views/Login.vue'
+import Login from '../views/authentication/Login.vue'
+import Register from '../views/authentication/Register.vue'
+import Consent from '../views/authentication/Consent.vue'
 
 
 const router = createRouter({
@@ -23,6 +25,16 @@ const router = createRouter({
             path: '/login',
             name: 'Login',
             component: Login
+        },
+        {
+            path: '/register',
+            name: 'Register',
+            component: Register
+        },
+        {
+            path: '/consent',
+            name: 'Consent',
+            component: Consent
         },
         {
             path: '/admin',
