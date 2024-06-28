@@ -11,6 +11,8 @@ import Transportation from '../views/CityInfo/Transportation.vue'
 import Login from '../views/authentication/Login.vue'
 import Register from '../views/authentication/Register.vue'
 import Consent from '../views/authentication/Consent.vue'
+import EmailVerification from '../views/authentication/EmailVerification.vue'
+import CodeVerification from '../views/authentication/CodeVerification.vue'
 
 
 const router = createRouter({
@@ -35,6 +37,16 @@ const router = createRouter({
             path: '/consent',
             name: 'Consent',
             component: Consent
+        },
+        {
+            path: '/email-verify',
+            name: 'Email Verify',
+            component: EmailVerification
+        },
+        {
+            path: '/email-verify/code/:token',
+            name: 'Code Verify',
+            component: CodeVerification
         },
         {
             path: '/admin',
