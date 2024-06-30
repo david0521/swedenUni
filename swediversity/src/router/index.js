@@ -13,6 +13,10 @@ import Register from '../views/authentication/Register.vue'
 import Consent from '../views/authentication/Consent.vue'
 import EmailVerification from '../views/authentication/EmailVerification.vue'
 import CodeVerification from '../views/authentication/CodeVerification.vue'
+import MyPageAccount from '../views/MyPage/MyPage.Account.vue'
+import MyPageUniversity from '../views/MyPage/MyPage.University.vue'
+import MyPageProgram from '../views/MyPage/MyPage.Program.vue'
+import MyPageGrade from '../views/MyPage/MyPage.Grade.vue'
 
 
 const router = createRouter({
@@ -47,6 +51,26 @@ const router = createRouter({
             path: '/email-verify/code/:token',
             name: 'Code Verify',
             component: CodeVerification
+        },
+        {
+            path: '/my-page/account',
+            name: 'MyPageAccount',
+            component: MyPageAccount
+        },
+        {
+            path: '/my-page/university',
+            name: 'MyPageUniversity',
+            component: MyPageUniversity
+        },
+        {
+            path: '/my-page/program',
+            name: 'MyPageProgram',
+            component: MyPageProgram
+        },
+        {
+            path: '/my-page/grade',
+            name: 'MyPageGrade',
+            component: MyPageGrade
         },
         {
             path: '/admin',
