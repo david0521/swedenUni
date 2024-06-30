@@ -140,10 +140,11 @@
                     password: this.password
                 });
 
-                const { token, refreshToken } = response.data;
+                const { token, refreshToken, userId } = response.data;
 
                 localStorage.setItem('jwtToken', token);
                 localStorage.setItem('refreshToken', refreshToken);
+                localStorage.setItem('userId', userId);
 
                 axios.defaults.headers.common['Authorization'] = `${token}`;
 
