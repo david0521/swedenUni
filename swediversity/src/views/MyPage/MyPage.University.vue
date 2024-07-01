@@ -116,7 +116,7 @@
 .university-card {
     width: 90%;
     height: 40%;
-    background-color: grey;
+    background-color: #6c757d;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -127,7 +127,10 @@
 .university-card-inner {
     width: 95%;
     height: 60%;
-    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #edede9;
     margin-bottom: 2%;
     border-radius: 15px;
     padding: 1em;
@@ -142,7 +145,7 @@
 }
 
 .like-button {
-    background-color: grey;
+    background-color: #6c757d;
     border: none;
     cursor: pointer;
     font-size: 2em;
