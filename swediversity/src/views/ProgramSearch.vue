@@ -303,51 +303,43 @@ export default {
             return this.programs[index].userLiked
         },
         async search() {
-            try {
-                /* Search based on four cases
-                 * Nothing given: Return all universities
-                 * University name given: Search for that particular university
-                 * City name given: Search for all universities in that city
-                 * City & University name given: Search for that particular university
-                 */
-
+            try 
+            {
                  let response;
 
                  console.log(this.selectedPrerequisites)
-
 
                  if (!this.programName && !this.programType && !this.meritPoint && !this.fee && this.selectedPrerequisites.length === 0) {
                     response = await axios.get('http://localhost:3000/api/programs')
                  }
 
-                 else if ((this.uniName && !this.cityName) || (this.uniName && this.cityName)) {
-                    const encodedUniName = encodeURIComponent(this.uniName);
-                    response = await axios.get(`http://localhost:3000/api/universities/name/${encodedUniName}`)
+                 else 
+                 {
+                    const params = new URLSearchParams();
 
-                 } else {
-                    response = await axios.get(`http://localhost:3000/api/universities/byCity?city=${this.cityName}`)
+                    if (this.programName) {
+                        params.append('programName', this.programName);
+                    }
+                    if (this.programType) {
+                        params.append('programType', this.programType);
+                    }
+                    if (this.meritPoint) {
+                        params.append('meritPoint', this.meritPoint);
+                    }
+                    if (this.fee) {
+                        params.append('tuition', this.fee);
+                    }
+                    if (this.selectedPrerequisites.length > 0) {
+                        this.selectedPrerequisites.forEach(prerequisite => {
+                            params.append('prerequisites', prerequisite);
+                        });
+                    }
+
+                    response = await axios.get(`http://localhost:3000/api/programs/search?${params.toString()}`);
                  }
 
-                 console.log(response)
-
                  if (response.data.programs) {
-                    if (Array.isArray(response.data.programs)) {
-                        this.programs = response.data.programs.map(program => ({
-                            name: program.name,
-                            code: program.code,
-                            university: program.universityName,
-                            description: program.programDescription,
-                            prerequisite: program.prerequisite,
-                            tuition: program.tuitionFee,
-                            type: program.type,
-                            id: program._id,
-                            likes: 0,
-                            userLiked: false
-                    }));
-                } 
-                else {
-                    const program = response.data.programs;
-                    this.programs = [{
+                    this.programs = response.data.programs.map(program => ({
                         name: program.name,
                         code: program.code,
                         university: program.universityName,
@@ -358,15 +350,14 @@ export default {
                         id: program._id,
                         likes: 0,
                         userLiked: false
-                    }];
-                }
-            } else {
-                this.programs = [];
-            }
+                    }))
+                 } else {
+                    this.programs = [];
+                 }
 
-            await this.getProgramLikes();
+                 await this.getProgramLikes();
 
-            await this.checkLiked();
+                 await this.checkLiked();
 
             } catch (err) {
                 console.error(err);
