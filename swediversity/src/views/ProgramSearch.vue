@@ -378,7 +378,7 @@ export default {
                 const requests = programNames.map(async (programName) => {
                     try {
                         const encodedProgramName = encodeURIComponent(programName);
-                        const response = await axios.get(`http://localhost:3000/api/users/prospective/program?program=${encodedProgramName}`);
+                        const response = await axios.get(`http://localhost:3000/api/programs/prospective/program?program=${encodedProgramName}`);
                         return { name: programName, likes: response.data.message };
                     } catch (err) {
                         console.error('Failed to fetch likes:', err)

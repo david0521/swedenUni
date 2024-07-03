@@ -213,7 +213,7 @@ export default {
                 const requests = universityNames.map(async (uniName) => {
                 try {
                     const encodedUniName = encodeURIComponent(uniName);
-                    const response = await axios.get(`http://localhost:3000/api/users/prospective/university?university=${encodedUniName}`);
+                    const response = await axios.get(`http://localhost:3000/api/univeristies/prospective/university?university=${encodedUniName}`);
                     return { name: uniName, likes: response.data.message };
                 } catch (error) {
                     console.error(`Failed to fetch likes for ${uniName}:`, error);
@@ -275,7 +275,7 @@ export default {
         },
         getLikesForUniversity(index) {
             const uniLike = this.universityLikes[index];
-            return uniLike ? uniLike.likes : 0; // Return likes count or 0 if not found
+            return uniLike ? uniLike.likes : 0;
         },
         change() {
             this.$router.push('/email-verify');

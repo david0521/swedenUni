@@ -246,7 +246,7 @@ export default {
                 const requests = universityNames.map(async (uniName) => {
                     try {
                         const encodedUniName = encodeURIComponent(uniName);
-                        const response = await axios.get(`http://localhost:3000/api/users/prospective/university?university=${encodedUniName}`);
+                        const response = await axios.get(`http://localhost:3000/api/universities/prospective/university?university=${encodedUniName}`);
                         return { name: uniName, likes: response.data.message };
                     } catch (err) {
                         console.error('Failed to fetch likes:', err)
