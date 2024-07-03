@@ -106,7 +106,7 @@
     methods: {
         async submit() {
             try {
-                const response = await axios.post('http://localhost:3000/api/users/resetPassword/emailRequest', {
+                const response = await axios.post('http://localhost:3000/api/auth/resetPassword/emailRequest', {
                     email: this.email
                 });
 

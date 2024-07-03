@@ -17,6 +17,8 @@ import MyPageAccount from '../views/MyPage/MyPage.Account.vue'
 import MyPageUniversity from '../views/MyPage/MyPage.University.vue'
 import MyPageProgram from '../views/MyPage/MyPage.Program.vue'
 import MyPageGrade from '../views/MyPage/MyPage.Grade.vue'
+import UniversitySearch from '../views/UniversitySearch.vue'
+import ProgramSearch from '../views/ProgramSearch.vue'
 
 
 const router = createRouter({
@@ -71,6 +73,16 @@ const router = createRouter({
             path: '/my-page/grade',
             name: 'MyPageGrade',
             component: MyPageGrade
+        },
+        {
+            path: '/search/university',
+            name: 'University Search',
+            component: UniversitySearch
+        },
+        {
+            path: '/search/program',
+            name: 'Program Search',
+            component: ProgramSearch
         },
         {
             path: '/admin',

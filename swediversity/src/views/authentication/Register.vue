@@ -174,7 +174,7 @@
         async checkDuplicate() {
             this.idErrorMessage = ''
             try {
-                const response = await axios.get(`http://localhost:3000/api/users/userName/${this.username}`);
+                const response = await axios.get(`http://localhost:3000/api/auth/userName/${this.username}`);
                 this.duplicateMessage = response.data.message;
                 if (this.duplicateMessage == "사용가능한 아이디입니다.") {
                     this.duplicateStatus = false;
@@ -224,7 +224,7 @@
             try {
                 const consents = localStorage.getItem('consentId');
 
-                const response = await axios.post('http://localhost:3000/api/users/register', {
+                const response = await axios.post('http://localhost:3000/api/auth/register', {
                     email: this.email,
                     userName: this.username,
                     userType: this.accountType,

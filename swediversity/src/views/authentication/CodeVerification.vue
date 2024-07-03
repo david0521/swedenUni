@@ -105,7 +105,7 @@
             try {
                 const resetToken = this.$route.params.token;
                 console.log(resetToken)
-                const response = await axios.post('http://localhost:3000/api/users/resetPassword', {
+                const response = await axios.post('http://localhost:3000/api/auth/resetPassword', {
                     newPassword: this.password,
                     token: resetToken
                 });

@@ -116,7 +116,7 @@
 .university-card {
     width: 90%;
     height: 40%;
-    background-color: grey;
+    background-color: #6c757d;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -127,7 +127,10 @@
 .university-card-inner {
     width: 95%;
     height: 60%;
-    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #edede9;
     margin-bottom: 2%;
     border-radius: 15px;
     padding: 1em;
@@ -142,7 +145,7 @@
 }
 
 .like-button {
-    background-color: grey;
+    background-color: #6c757d;
     border: none;
     cursor: pointer;
     font-size: 2em;
@@ -210,7 +213,7 @@ export default {
                 const requests = universityNames.map(async (uniName) => {
                 try {
                     const encodedUniName = encodeURIComponent(uniName);
-                    const response = await axios.get(`http://localhost:3000/api/users/prospective/university?university=${encodedUniName}`);
+                    const response = await axios.get(`http://localhost:3000/api/univeristies/prospective/university?university=${encodedUniName}`);
                     return { name: uniName, likes: response.data.message };
                 } catch (error) {
                     console.error(`Failed to fetch likes for ${uniName}:`, error);
@@ -272,7 +275,7 @@ export default {
         },
         getLikesForUniversity(index) {
             const uniLike = this.universityLikes[index];
-            return uniLike ? uniLike.likes : 0; // Return likes count or 0 if not found
+            return uniLike ? uniLike.likes : 0;
         },
         change() {
             this.$router.push('/email-verify');
