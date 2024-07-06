@@ -25,7 +25,7 @@
                 </div>
                 <div v-for="(university, index) in universityNames" :key="index" class="card-wrapper">
                     <div class="university-card">
-                        <div class="university-card-inner">
+                        <div class="university-card-inner" @click="pushToUniversity(university)">
                             <h3>{{ university }}</h3>
                         </div>
                         <div class="university-card-down">
@@ -55,7 +55,7 @@
 
 .upper-part {
     width: 100%;
-    height: 20em;
+    height: 35em;
     padding: 2em;
     display: flex;
     flex-direction: column;
@@ -93,7 +93,7 @@
 
 .bottom-part {
     width: 100%;
-    height: 100em;
+    height: auto;
     display: flex;
     justify-content: bottom;
     align-items: center;
@@ -107,7 +107,7 @@
 
 .card-wrapper {
     width: 70em;
-    height: 40em;
+    height: 20em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,7 +115,7 @@
 
 .university-card {
     width: 90%;
-    height: 40%;
+    height: 70%;
     background-color: #6c757d;
     border-radius: 15px;
     display: flex;
@@ -135,6 +135,7 @@
     border-radius: 15px;
     padding: 1em;
     text-align: center;
+    cursor: pointer;
 }
 
 .university-card-down {
@@ -213,7 +214,7 @@ export default {
                 const requests = universityNames.map(async (uniName) => {
                 try {
                     const encodedUniName = encodeURIComponent(uniName);
-                    const response = await axios.get(`http://localhost:3000/api/univeristies/prospective/university?university=${encodedUniName}`);
+                    const response = await axios.get(`http://localhost:3000/api/universities/prospective/university?university=${encodedUniName}`);
                     return { name: uniName, likes: response.data.message };
                 } catch (error) {
                     console.error(`Failed to fetch likes for ${uniName}:`, error);
@@ -291,6 +292,9 @@ export default {
         },
         grade() {
             this.$router.push('/my-page/grade');
+        },
+        pushToUniversity(universityName) {
+            this.$router.push(`/university/${universityName}`);
         }
     },
     created() {

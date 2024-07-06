@@ -27,7 +27,7 @@
         <div class="lower-layer">
             <div v-for="(university, index) in universities" :key="index">
                 <div class="card-outer">
-                    <div class="card-upper">
+                    <div class="card-upper" @click="pushToUniversity(university.name)">
                         <h3>{{ university.name }}</h3>
                     </div>
                     <div class="card-lower">
@@ -128,6 +128,7 @@
     align-items: center;
     justify-content: center;
     background-color: #edede9;
+    cursor: pointer;
 }
 
 .card-lower {
@@ -320,6 +321,9 @@ export default {
             } catch (err) {
                 console.error('An error occured:', err)
             }
+        },
+        pushToUniversity(universityName) {
+            this.$router.push(`/university/${universityName}`);
         }
     },
     computed: {

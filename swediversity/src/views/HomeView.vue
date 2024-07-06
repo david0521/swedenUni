@@ -37,28 +37,28 @@
     <div class="carousel-item">
       <img src="../assets/Lund_Main.png" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <router-link to="/university/룬드대학교" class="main-font" style="color: black;">룬드 대학교</router-link>
+        <router-link to="/university/Lund%20University" class="main-font" style="color: black;">룬드 대학교</router-link>
         <p class="caption-font">QS 세계랭킹 2024년 기준 85등을 자랑하는 종합대학교 </p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="../assets/Uppsala_Main.png" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <router-link to="/university/웁살라대학교" class="main-font" style="color: black;">웁살라 대학교</router-link>
+        <router-link to="/university/Uppsala%20University" class="main-font" style="color: black;">웁살라 대학교</router-link>
         <p class="caption-font">QS 세계랭킹 2024년 기준 105등의 스웨덴에서 가장 오래된 종합대학교</p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="../assets/Stockholm_Main.png" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <router-link to="/university/스톡홀름대학교" class="main-font" style="color: black;">스톡홀름 대학교</router-link>
+        <router-link to="/university/University%20of%20Stockholm" class="main-font" style="color: black;">스톡홀름 대학교</router-link>
         <p class="caption-font">QS 세계랭킹 2024년 기준 118등의 스웨덴의 종합대학교</p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="../assets/Gothenburg_Main.png" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <router-link to="/university/예테보리대학교" class="main-font" style="color: black;">예테보리 대학교</router-link>
+        <router-link to="/university/University%20of%20Gothenburg" class="main-font" style="color: black;">예테보리 대학교</router-link>
         <p class="caption-font">QS 세계랭킹 2024년 기준 187등의 스웨덴의 종합대학교</p>
       </div>
     </div>
