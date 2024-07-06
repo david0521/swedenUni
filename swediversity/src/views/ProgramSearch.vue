@@ -62,7 +62,7 @@
             </div>
             <div v-for="(program, index) in programs" :key="index">
                 <div class="card-outer">
-                    <div class="card-upper">
+                    <div class="card-upper" @click="pushToProgram(program.university, program.name)">
                         <div class="card-upper-left">
                             <h5>{{ program.name }}</h5>
                         </div>
@@ -216,6 +216,7 @@
     border-radius: 1em;
     display: flex;
     flex-direction: row;
+    cursor: pointer;
     background-color: #edede9;
 }
 
@@ -311,6 +312,8 @@ export default {
 
                  if (!this.programName && !this.programType && !this.meritPoint && !this.fee && this.selectedPrerequisites.length === 0) {
                     response = await axios.get('http://localhost:3000/api/programs')
+                 } else if (!this.programType && !this.meritPoint && !this.fee && this.selectedPrerequisites.length === 0) {
+                    response = await axios.get(`http://localhost:3000/api/programs/name/${this.programName}`)
                  }
 
                  else 
@@ -443,6 +446,9 @@ export default {
             } catch (err) {
                 console.error('An error occured:', err)
             }
+        },
+        pushToProgram(university, programName) {
+            this.$router.push(`/program/${university}/${programName}`);
         }
     },
     computed: {

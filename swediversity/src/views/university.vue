@@ -54,7 +54,7 @@
   <div class="program-explanation">
     <div v-for="(program, index) in programNames" :key="index" class="card-wrapper">
       <div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
-        <div class="card-body">
+        <div class="card-body" @click="pushToProgram(this.uniName, program.name)">
           <h5 class="card-title text-center main-font">{{ program.name }}</h5>
           <p class="card-text caption-font">{{ program.programDescription }}</p>
         </div>
@@ -186,6 +186,7 @@ export default {
       imageUrl: '',
       programNames: [],
       programDescription: {},
+      uniName: '',
       uniLocation: '',
       isAlertvisible: false,
       alertMessage: '',
@@ -204,16 +205,20 @@ export default {
     },
     async dismissAlert() {
       this.isAlertvisible = false;
+    },
+    pushToProgram(university, programName) {
+            this.$router.push(`/program/${university}/${programName}`);
     }
   },
   created() {
     const uniName = this.$route.params.uniName;
+    this.uniName = uniName;
     const universityMap = {
-      '예테보리대학교': { universityName: '예테보리 대학교', backend: 'University%20of%20Gothenburg', image: GUImage },
-      '스톡홀름대학교': { universityName: '스톡홀름 대학교', backend: 'University%20of%20Stockholm', image: StockholmImage },
+      'University of Gothenburg': { universityName: '예테보리 대학교', backend: 'University%20of%20Gothenburg', image: GUImage },
+      'University of Stockholm': { universityName: '스톡홀름 대학교', backend: 'University%20of%20Stockholm', image: StockholmImage },
       'KTH': { universityName: '왕립 공과대학교', backend: 'KTH', image: KTHImage },
-      '룬드대학교': { universityName: '룬드 대학교', backend: 'Lund%20University', image: LundImage },
-      '웁살라대학교': { universityName: '웁살라 대학교', backend: 'Uppsala%20University', image: UppsalaImage },
+      'Lund University': { universityName: '룬드 대학교', backend: 'Lund%20University', image: LundImage },
+      'Uppsala University': { universityName: '웁살라 대학교', backend: 'Uppsala%20University', image: UppsalaImage },
     }
 
     if (universityMap[uniName]) {

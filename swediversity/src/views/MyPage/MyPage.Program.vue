@@ -23,7 +23,7 @@
             <div class="bottom-part">
                 <div v-for="(program, index) in programNames" :key="index" class="card-wrapper">
                     <div class="program-card">
-                        <div class="program-card-inner">
+                        <div class="program-card-inner" @click="pushToProgram(programUniversity[index], program)">
                             <h3>{{ program }}</h3>
                         </div>
                         <div class="program-card-down">
@@ -53,7 +53,7 @@
 
 .upper-part {
     width: 100%;
-    height: 20em;
+    height: 35em;
     padding: 2em;
     display: flex;
     flex-direction: column;
@@ -91,7 +91,7 @@
 
 .bottom-part {
     width: 100%;
-    height: 100em;
+    height: auto;
     display: flex;
     justify-content: bottom;
     align-items: center;
@@ -105,7 +105,7 @@
 
 .card-wrapper {
     width: 70em;
-    height: 40em;
+    height: 20em;
     margin: 0;
     display: flex;
     align-items: center;
@@ -115,7 +115,7 @@
 
 .program-card {
     width: 90%;
-    height: 40%;
+    height: 70%;
     background-color: grey;
     border-radius: 15px;
     display: flex;
@@ -179,7 +179,8 @@ export default {
             liked: [],
             programNames: [],
             programLikes: [],
-            programIds: []
+            programIds: [],
+            programUniversity: [],
         };
     },
     methods: {
@@ -198,9 +199,11 @@ export default {
 
                 const programNames = response.data.programs.map(program => program.name);
                 const programIds = response.data.programs.map(program => program._id);
+                const programUniversity = response.data.programs.map(program => program.universityName)
 
                 this.programNames = programNames;
                 this.programIds = programIds;
+                this.programUniversity = programUniversity;
 
                 this.getProgramLikes();
             } catch (err) {
@@ -291,6 +294,9 @@ export default {
         },
         grade() {
             this.$router.push('/my-page/grade');
+        },
+        pushToProgram(university, programName) {
+            this.$router.push(`/program/${university}/${programName}`);
         }
     },
     created() {

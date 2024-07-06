@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import University from '../views/university.vue'
+import Program from '../views/Program.vue'
 import CityInfo from '../views/CityInfo/CityInfo.vue'
 import Admin from '../views/admin/admin.vue'
 import AddUni from '../views/admin/AddUni.vue'
@@ -103,6 +104,11 @@ const router = createRouter({
             path: '/university/:uniName',
             name: 'University',
             component: University
+        },
+        {
+            path: '/program/:uniName/:programName',
+            name: 'Program',
+            component: Program
         },
         {
             path: '/university/:uniName/cityInfo',
