@@ -20,7 +20,7 @@ import MyPageProgram from '../views/MyPage/MyPage.Program.vue'
 import MyPageGrade from '../views/MyPage/MyPage.Grade.vue'
 import UniversitySearch from '../views/UniversitySearch.vue'
 import ProgramSearch from '../views/ProgramSearch.vue'
-
+import AddRecord from '../views/admin/AddRecord.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -99,6 +99,11 @@ const router = createRouter({
             path: '/admin/addProgram',
             name: 'AddProgram',
             component: AddProgram
+        },
+        {
+            path: '/admin/addRecord',
+            name: 'AddRecord',
+            component: AddRecord
         },
         {
             path: '/university/:uniName',
