@@ -131,7 +131,7 @@
             this.$router.push('/consent');
         },
         toPasswordChange() {
-            this.$router.push('/forgot-password');
+            this.$router.push('/email-verify');
         },
         async login() {
             try {
