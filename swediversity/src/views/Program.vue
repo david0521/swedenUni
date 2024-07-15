@@ -50,8 +50,10 @@
                         <h2>메리트 포인트</h2>
                     </div>
                     <div class="box-content">
-                        <h3>{{ program.merit }}</h3>
-                        <p>과거 입시 정보의 평균치입니다.</p>
+                        <div v-for="(avgRecord, index) in avgRecords" :key="index">
+                          <h3>{{ avgRecord.round }}  {{ avgRecord.selectionGroup }}: {{ roundUpScore(avgRecord.score) }}</h3>
+                        </div>
+                        <p>과거 3년치 입시 정보의 평균입니다.</p>
                     </div>
                 </div>
             </div>
@@ -142,6 +144,7 @@
     data: function () {
       return {
         universityName: '',
+        avgRecords: [],
         imageUrl: '',
         program: '',
         isAlertvisible: false,
@@ -149,6 +152,9 @@
       }
     },
     methods: {
+      roundUpScore(score) {
+        return (Math.ceil(score * 100) / 100).toFixed(2);
+      },
       async getProgram() {
         try {
             const response = await axios.get(`http://localhost:3000/api/programs/name/${this.programName}`);
@@ -157,7 +163,15 @@
         } catch (err) {
             console.log(err)
         }
+      },
+      async getMinMeritPoint() {
+        try {
+          const response = await axios.get(`http://localhost:3000/api/records/name/${this.programName}/avg`)
+          this.avgRecords = response.data.stats;
 
+        } catch (err) {
+
+        }
       },
       async dismissAlert() {
         this.isAlertvisible = false;
@@ -202,6 +216,8 @@
         this.alertMessage = `${uniName}는 아직 시스템에 등록되지 않은 대학교입니다`
         this.isAlertvisible = true;
       }
+
+      this.getMinMeritPoint();
     },
     mounted() {
         this.observeElements();
