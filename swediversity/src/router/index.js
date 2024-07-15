@@ -23,6 +23,7 @@ import ProgramSearch from '../views/ProgramSearch.vue'
 import AddRecord from '../views/admin/AddRecord.vue'
 import Process from '../views/admissions/Process.vue'
 import Document from '../views/admissions/Documents.vue'
+import PrerequisiteExplain from '../views/admissions/PrerequisiteExplain.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -146,6 +147,11 @@ const router = createRouter({
             path: '/admissions/documents',
             name: 'Documents',
             component: Document
+        },
+        {
+            path: '/admissions/prerequisites/explain',
+            name: 'Prerequiste Explain',
+            component: PrerequisiteExplain
         }
         
     ]

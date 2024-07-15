@@ -84,7 +84,7 @@
         <div class="title-caption caption-font">
             <p style="text-align: center;">
                 스웨덴 대학에 지원을 하기 위해서는 몇 가지의 서류가 필요합니다. <br>
-                자세한 내용을 확인하기 위해서는 다음 페이지를 확인해 주세요. <br>
+                자세한 내용을 확인하기 위해서는 <a href="/admissions/prerequisites/explain" style="color: black;">다음 페이지를</a> 확인해 주세요. <br>
             </p>
         </div>
         </div>

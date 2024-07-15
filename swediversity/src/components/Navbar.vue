@@ -34,7 +34,7 @@
             <li><a class="dropdown-item" href="/admissions/documents">구비 서류</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">메리트 점수 설명</a></li>
-            <li><a class="dropdown-item" href="#">선수강 요건 설명</a></li>
+            <li><a class="dropdown-item" href="/admissions/prerequisites/explain">선수강 요건 설명</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">선수강 요건 수정</a></li>
           </ul>
