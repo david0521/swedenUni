@@ -30,7 +30,7 @@
             지원 정보
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">지원 과정</a></li>
+            <li><a class="dropdown-item" href="/admissions/process">지원 과정</a></li>
             <li><a class="dropdown-item" href="#">구비 서류</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">메리트 점수 설명</a></li>

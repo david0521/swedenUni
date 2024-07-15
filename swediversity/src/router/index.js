@@ -21,6 +21,7 @@ import MyPageGrade from '../views/MyPage/MyPage.Grade.vue'
 import UniversitySearch from '../views/UniversitySearch.vue'
 import ProgramSearch from '../views/ProgramSearch.vue'
 import AddRecord from '../views/admin/AddRecord.vue'
+import Process from '../views/admissions/process.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -134,6 +135,11 @@ const router = createRouter({
             path: '/university/:uniName/cityInfo/이동하고',
             name: 'Transportation',
             component: Transportation
+        },
+        {
+            path: '/admissions/process',
+            name: 'Process',
+            component: Process
         }
         
     ]
