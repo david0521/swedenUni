@@ -24,6 +24,7 @@ import AddRecord from '../views/admin/AddRecord.vue'
 import Process from '../views/admissions/Process.vue'
 import Document from '../views/admissions/Documents.vue'
 import PrerequisiteExplain from '../views/admissions/PrerequisiteExplain.vue'
+import AdmissionRecords from '../views/AdmissionRecords.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -117,6 +118,11 @@ const router = createRouter({
             path: '/program/:uniName/:programName',
             name: 'Program',
             component: Program
+        },
+        {
+            path: '/program/:uniName/:programName/stats',
+            name: 'Admission Stats',
+            component: AdmissionRecords
         },
         {
             path: '/university/:uniName/cityInfo',

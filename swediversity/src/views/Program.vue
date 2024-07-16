@@ -49,7 +49,7 @@
                     <div class="box-header third-font">
                         <h2>메리트 포인트</h2>
                     </div>
-                    <div class="box-content">
+                    <div class="box-content" @click="pushToMerit()">
                         <div v-for="(avgRecord, index) in avgRecords" :key="index">
                           <h3>{{ avgRecord.round }}  {{ avgRecord.selectionGroup }}: {{ roundUpScore(avgRecord.score) }}</h3>
                         </div>
@@ -102,7 +102,8 @@
     flex-direction: column;
     width: 20em;
     height: 30em;
-    margin: 3em  
+    margin: 3em;
+
   }
 
   .box-header {
@@ -116,6 +117,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
 
   .fade-in {
@@ -154,6 +156,12 @@
     methods: {
       roundUpScore(score) {
         return (Math.ceil(score * 100) / 100).toFixed(2);
+      },
+      pushToMerit() {
+        const programName = this.$route.params.programName;
+        const uniName = this.$route.params.uniName;
+        this.$router.push(`/program/${uniName}/${programName}/stats`)
+
       },
       async getProgram() {
         try {
