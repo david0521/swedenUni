@@ -37,17 +37,6 @@
             </div>
         </div>
     </div>
-    <div class="section">
-        <div class="section-wrapper">
-            <div class="title main-font">
-                <h1>요약</h1>
-            </div>
-            <div class="title-explain caption-font">
-                <p>과거 정보에 따라 해당 학과의 입시정보를 해설합니다.</p>
-            </div>
-            
-        </div>
-    </div>
 </template>
 
 
