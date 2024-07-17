@@ -28,7 +28,7 @@
                     <div class="box-header third-font">
                         <h2>학비</h2>
                     </div>
-                    <div class="box-content">
+                    <div class="box-content" @click="pushToTuitions()">
                         <h3>{{ program.tuitionFee }} SEK</h3>
                         <p>단, 스웨덴 거주비자 소지시 면제</p>
                     </div>
@@ -162,6 +162,11 @@
         const uniName = this.$route.params.uniName;
         this.$router.push(`/program/${uniName}/${programName}/stats`)
 
+      },
+      pushToTuitions() {
+        const programName = this.$route.params.programName;
+        const uniName = this.$route.params.uniName;
+        this.$router.push(`/program/${uniName}/${programName}/tuitions`)
       },
       async getProgram() {
         try {
