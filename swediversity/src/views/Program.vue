@@ -37,7 +37,7 @@
                     <div class="box-header third-font">
                         <h2>선수강 과목</h2>
                     </div>
-                    <div class="box-content">
+                    <div class="box-content" @click="pushToPrerequisite()">
                         <ul class="list-unstyled">
                             <h3 v-for="(prerequisite, index) in program.prerequisite" :key="index" style="display: flex; justify-content: center;">
                                 {{ prerequisite }}
@@ -156,6 +156,9 @@
     methods: {
       roundUpScore(score) {
         return (Math.ceil(score * 100) / 100).toFixed(2);
+      },
+      pushToPrerequisite() {
+        this.$router.push('/admissions/prerequisites/explain')
       },
       pushToMerit() {
         const programName = this.$route.params.programName;

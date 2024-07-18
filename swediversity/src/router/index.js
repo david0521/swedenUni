@@ -26,6 +26,7 @@ import Document from '../views/admissions/Documents.vue'
 import PrerequisiteExplain from '../views/admissions/PrerequisiteExplain.vue'
 import AdmissionRecords from '../views/AdmissionRecords.vue'
 import TuitionFee from '../views/TuitionFee.vue'
+import CurriculumChange from '../views/admissions/CurriculumChange.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -164,6 +165,11 @@ const router = createRouter({
             path: '/admissions/prerequisites/explain',
             name: 'Prerequiste Explain',
             component: PrerequisiteExplain
+        },
+        {
+            path: '/admissions/prerequisites/change',
+            name: 'Curriculum Change',
+            component: CurriculumChange
         }
         
     ]
