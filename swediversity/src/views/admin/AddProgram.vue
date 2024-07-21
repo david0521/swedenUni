@@ -21,6 +21,8 @@
       </div>
       <h6>Tuition Fee SEK</h6>
       <input v-model="programTuition" class="form-control" type="text" placeholder="Program Tuition" aria-label="default input example">
+      <h6>Program Type</h6>
+      <input v-model="programType" class="form-control" type="text" placeholder="Program Type" aria-label="default input example">
       <textarea v-model="programDescription" class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="8" placeholder="Program Description"></textarea>
 
       <button @click="postProgram" class="btn btn-primary">Add Program</button>
@@ -36,6 +38,7 @@ export default {
     return {
       programName: '',
       programCode: '',
+      programType: '',
       programDescription: '',
       programPrerequisites: [],
       programTuition: 0,
@@ -63,21 +66,28 @@ export default {
     async fetchUniversities() {
       try {
         const response = await axios.get("http://localhost:3000/api/universities");
-        this.universities = response.data;
-        console.log(response);
+        this.universities = response.data.univeristies;
+
       } catch (error) {
         console.error("There was an error fetching universities", error);
       }
     },
     async postProgram() {
       try {
+        const token = localStorage.getItem('jwtToken');
+        if (!token) {
+          throw new Error('토큰이 존재하지 않습니다.')
+        } 
+        axios.defaults.headers.common['Authorization'] = `${token}`;
+
         const response = await axios.post("http://localhost:3000/api/programs", {
           programName: this.programName,
           programCode: this.programCode,
           programDescription: this.programDescription,
           programUniversity: this.universityName,
           programPrerequisites: this.programPrerequisites,
-          programTuition: this.programTuition
+          programTuition: this.programTuition,
+          type: this.programType
         });
       } catch (error) {
         console.error("There is an error: ", error);

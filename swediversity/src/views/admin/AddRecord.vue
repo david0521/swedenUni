@@ -40,17 +40,17 @@
       return {
         programs: [],
         programName: '',
-        minScore: 0,
-        numOfApplicants: 0,
-        numOfQualified: 0,
-        acceptedApplicants: 0,
-        year: 0,
-        numOfFirstChoice: 0,
+        minScore: '',
+        numOfApplicants: '',
+        numOfQualified: '',
+        acceptedApplicants: '',
+        year: '',
+        numOfFirstChoice: '',
         rounds: ['round1', 'round2'],
         selectedRound: '',
         selections: ['selection1', 'selection2'],
         selectedSelection: '',
-        selectionGroups: ['B1', 'B2', 'B1AV', 'B1BF', 'B2AV', 'B2BF'],
+        selectionGroups: ['B1', 'B2', 'B1AV', 'B1BF', 'B2AV', 'B2BF', 'B1AB', 'B2AB', 'AB1', 'BB1', 'AB2', 'BB2'],
         selectedSelectionGroup: ''
 
       };
