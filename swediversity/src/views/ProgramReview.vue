@@ -319,7 +319,7 @@ export default {
       imageUrl: '',
       contentTitle: '',
       postType: '',
-      postTypes: ['학업', '지원과정', '학생문화'],
+      postTypes: ['학과생활', '학업', '학생문화', '지원과정'],
       contents: []
     }
   },
@@ -351,7 +351,8 @@ export default {
           {
             title: this.contentTitle,
             category: this.postType,
-            content: this.contentBody
+            content: this.contentBody,
+            programName: this.programName
           }
         )
 
@@ -364,7 +365,7 @@ export default {
     async getContents() {
       try {
         const userId = localStorage.getItem('userId');
-        const response = await axios.get(`http://localhost:3000/api/posts/userId/${userId}?type=programReview`)
+        const response = await axios.get(`http://localhost:3000/api/posts/userId/${userId}?type=ProgramPost`)
 
         const contents = response.data.contents
 
