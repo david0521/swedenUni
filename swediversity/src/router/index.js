@@ -14,6 +14,7 @@ import Register from '../views/authentication/Register.vue'
 import Consent from '../views/authentication/Consent.vue'
 import EmailVerification from '../views/authentication/EmailVerification.vue'
 import CodeVerification from '../views/authentication/CodeVerification.vue'
+import MyPageGen from '../views/MyPage/MyPageGen.vue'
 import MyPageAccount from '../views/MyPage/MyPage.Account.vue'
 import MyPageUniversity from '../views/MyPage/MyPage.University.vue'
 import MyPageProgram from '../views/MyPage/MyPage.Program.vue'
@@ -27,6 +28,8 @@ import PrerequisiteExplain from '../views/admissions/PrerequisiteExplain.vue'
 import AdmissionRecords from '../views/AdmissionRecords.vue'
 import TuitionFee from '../views/TuitionFee.vue'
 import CurriculumChange from '../views/admissions/CurriculumChange.vue'
+import UniversityReview from '../views/UniversityReview.vue'
+import ProgramReview from '../views/ProgramReview.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -64,7 +67,7 @@ const router = createRouter({
         {
             path: '/my-page/account',
             name: 'MyPageAccount',
-            component: MyPageAccount
+            component: MyPageGen
         },
         {
             path: '/my-page/university',
@@ -170,6 +173,16 @@ const router = createRouter({
             path: '/admissions/prerequisites/change',
             name: 'Curriculum Change',
             component: CurriculumChange
+        },
+        {
+            path: '/myUni/university/review',
+            name: 'University Review',
+            component: UniversityReview
+        },
+        {
+            path: '/myUni/program/review',
+            name: 'Program Review',
+            component: ProgramReview
         }
         
     ]

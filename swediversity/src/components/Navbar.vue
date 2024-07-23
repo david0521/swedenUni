@@ -39,6 +39,15 @@
             <li><a class="dropdown-item" href="/admissions/prerequisites/change">선수강 요건 수정</a></li>
           </ul>
         </li>
+        <li class="nav-item dropdown ms-5">
+          <a v-if="isStudent" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            내 대학교 및 학과
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/myUni/university/review">대학교 리뷰</a></li>
+            <li><a class="dropdown-item" href="/myUni/program/review">학과 리뷰</a></li>
+          </ul>
+        </li>
       </ul>
 <!-- Right side -->
       <li class="nav-item dropdown list-unstyled">
@@ -62,14 +71,17 @@
 export default {
   data() {
     return {
-      isLoggedIn: false
+      isLoggedIn: false,
+      isStudent: ''
     }
   },
   methods: {
     logout() {
       localStorage.setItem('jwtToken', null);
       localStorage.setItem('userId', null);
+      localStorage.setItem('userType', null);
       this.isLoggedIn = false;
+      this.$router.push('/')
     },
     checkLogin() {
       const jwtToken = localStorage.getItem('jwtToken');
@@ -80,10 +92,20 @@ export default {
       } else {
         this.isLoggedIn = false;
       }
+    },
+    checkStudent() {
+      const userType = localStorage.getItem('userType')
+
+      if (userType === 'universityStudent') {
+        this.isStudent = true;
+      } else {
+        this.isStudent = false;
+      }
     }
   },
   created() {
     this.checkLogin();
+    this.checkStudent();
   }
 }
 
