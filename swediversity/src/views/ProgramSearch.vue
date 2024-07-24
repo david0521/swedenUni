@@ -39,10 +39,6 @@
                             </div>
                         </div>
                         <div class="search-option">
-                            <strong>메리트 점수 기준</strong>
-                                <input class="form-control form-control-sm" type="text" placeholder="최소 점수" aria-label=".form-control-sm example" style="width: 50%;" v-model="meritPoint">
-                        </div>
-                        <div class="search-option">
                             <strong>최대 학비 선택</strong>
                                 <input class="form-control form-control-sm" type="text" placeholder="최대 학비" aria-label=".form-control-sm example" style="width: 50%;" v-model="fee">
                         </div>
@@ -69,12 +65,11 @@
                         <div class="card-upper-right">
                             <h6><strong>소속 대학교:</strong> {{ program.university }}</h6>
                             <h6><strong>계열:</strong> {{ program.type }}</h6>
-                            <h6><strong>메리트 점수:</strong> {{ program.meritPoint }}</h6>
                             <h6><strong>학비:</strong> {{ program.tuition }} SEK</h6>
                         </div>
                     </div>
                     <div class="card-lower">
-                        <button class="like-button" @click="like(index)">
+                        <button class="btn like-button" @click="like(index)">
                             <fa :icon="program.userLiked ? 'heart' : 'fa-regular fa-heart'" />
                         </button>
                         <div class="like-number">
@@ -181,6 +176,7 @@
     width: 40%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .search-option-content-right {
@@ -205,15 +201,15 @@
     justify-content: center;
     align-items: center;
     margin: 1em;
-    background-color: #6c757d;
-    border-radius: 1em;
+    background-color: #d6ccc2;
+    border-radius: 0.5em;
 }
 
 .card-upper {
     height: 70%;
     width: 98%;
     margin-top: 1%;
-    border-radius: 1em;
+    border-radius: 0.6em;
     display: flex;
     flex-direction: row;
     cursor: pointer;
@@ -227,11 +223,12 @@
     align-self: center;
 }
 
-.card-upper-rigth {
+.card-upper-right {
     width: 45%;
     display: flex;
     flex-direction: column;
     align-self: center;
+    justify-content: center;
 }
 .card-lower {
     height: 30%;
@@ -240,7 +237,6 @@
 }
 
 .like-button {
-    background-color: #6c757d;
     border: none;
     cursor: pointer;
     font-size: 1.5em;
@@ -251,7 +247,7 @@
 .like-number {
     display: flex;
     align-items: center;
-    margin-top: 0.8%;
+    margin-top: 13%;
 }
 
 .like-button .liked {

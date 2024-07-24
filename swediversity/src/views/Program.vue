@@ -16,8 +16,8 @@
     </div>
     <div class="explanation">
         <div class="explanation-about fade-in">
-            <h1 class="main-font">무엇을 배우나요?</h1>
-            <p class="caption-font">{{ program.programDescription }}</p>
+            <h1 class="main-font" style="cursor: pointer;" @click="pushToReview()">학과 생활은 어떻나요??</h1>
+            <p>실제 학과 학생들이 작성한 게시물을 읽어보세요.</p>
         </div>
     </div>
     <div class="explanation">
@@ -156,6 +156,11 @@
     methods: {
       roundUpScore(score) {
         return (Math.ceil(score * 100) / 100).toFixed(2);
+      },
+      pushToReview() {
+        const uniName = this.$route.params.uniName;
+        const programName = this.$route.params.programName;
+        this.$router.push(`/program/${uniName}/${programName}/posts`)
       },
       pushToPrerequisite() {
         this.$router.push('/admissions/prerequisites/explain')

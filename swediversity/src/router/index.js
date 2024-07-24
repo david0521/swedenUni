@@ -30,6 +30,10 @@ import TuitionFee from '../views/TuitionFee.vue'
 import CurriculumChange from '../views/admissions/CurriculumChange.vue'
 import UniversityReview from '../views/UniversityReview.vue'
 import ProgramReview from '../views/ProgramReview.vue'
+import UniversityPostList from '../views/UniversityPostList.vue'
+import ProgramPostList from '../views/ProgramPostList.vue'
+import UniversityPost from '../views/UniversityPost.vue'
+import ProgramPost from '../views/ProgramPost.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -183,6 +187,26 @@ const router = createRouter({
             path: '/myUni/program/review',
             name: 'Program Review',
             component: ProgramReview
+        },
+        {
+            path: '/university/:uniName/posts',
+            name: 'University Post List',
+            component: UniversityPostList
+        },
+        {
+            path: '/program/:uniName/:programName/posts',
+            name: 'Program Post List',
+            component: ProgramPostList
+        },
+        {
+            path: '/university/:uniName/posts/:id',
+            name: 'University Post',
+            component: UniversityPost
+        },
+        {
+            path: '/university/:uniName/:programName/posts/:id',
+            name: 'Progrma Post',
+            component: ProgramPost
         }
         
     ]

@@ -308,11 +308,12 @@ export default {
   data: function () {
     return {
       universityName: '',
+      univeristy: '',
       backendIdentifier: '',
       imageUrl: '',
       contentTitle: '',
       postType: '',
-      postTypes: ['대학생활', '학업', '학생문화'],
+      postTypes: ['대학생활', '캠퍼스', '학생문화'],
       contents: []
     }
   },
@@ -328,6 +329,7 @@ export default {
                 this.$router.push('/my-page/account')
             } else {
                 this.universityName = university;
+                this.univeristy = university;
             }
 
         } catch (err) {
@@ -342,7 +344,8 @@ export default {
           {
             title: this.contentTitle,
             category: this.postType,
-            content: this.contentBody
+            content: this.contentBody,
+            uniName: this.univeristy
           }
         )
 
@@ -357,7 +360,7 @@ export default {
     async getContents() {
       try {
         const userId = localStorage.getItem('userId');
-        const response = await axios.get(`http://localhost:3000/api/posts/userId/${userId}?type=universityReview`)
+        const response = await axios.get(`http://localhost:3000/api/posts/userId/${userId}?type=UniversityPost`)
 
         const contents = response.data.contents
 
