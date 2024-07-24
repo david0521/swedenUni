@@ -25,7 +25,7 @@
       </div>
       <div class="col">
         <div class="box">
-          <div class="box-content">
+          <div class="box-content" @click="pushToReview()">
             <h5 class="box-title main-font">학생 후기</h5>
             <h5 class="box-title-story caption-font">
               학교에 대한 경험은 어땠는지... <br>
@@ -208,6 +208,9 @@ export default {
     },
     pushToProgram(university, programName) {
             this.$router.push(`/program/${university}/${programName}`);
+    },
+    pushToReview() {
+      this.$router.push(`/university/${this.uniName}/posts`)
     }
   },
   created() {
