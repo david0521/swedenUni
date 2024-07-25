@@ -3,11 +3,11 @@
         <h1 class="main-font">학비 계산기</h1>
         <p style="text-align: center;">
             학비를 원화 환산으로 계산한 결과입니다. <br>
-            비용문제로 인해 환율은 3시간에 한 번씩 자동으로 업데이트 됩니다. <br>
+            비용문제로 인해 환율은 3시간에 한 번씩 업데이트 됩니다. <br>
         </p>
         <div class="box-wrapper">
             <div class="currency-box">
-                <div class="input-group mb-3" style="width: 40%;">
+                <div class="input-group" style="width: 40%;">
                     <span class="input-group-text" id="basic-addon1">SEK</span>
                     <input class="form-control" type="text" v-model="tuitionFee" aria-label="readonly input example" readonly>
                 </div>
@@ -47,14 +47,15 @@
 }
 
 .currency-box {
-    height: 30vh;
+    height: 20em;
     width: 50em;
     display: flex;
     flex-direction: column;
-    background-color: #e3d5ca;
-    border-radius: 2em;
+    background-color: #dee2e6;
+    border-radius: 1em;
     justify-content: center;
     align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .tuition-semester {

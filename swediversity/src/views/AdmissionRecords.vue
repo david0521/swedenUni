@@ -117,13 +117,13 @@ export default {
           x: {
             title: {
               display: true,
-              text: 'Year'
+              text: '년도'
             }
           },
           y: {
             title: {
               display: true,
-              text: 'Min Score'
+              text: '최소 합격 점수'
             }
           }
         }
@@ -134,13 +134,13 @@ export default {
           x: {
             title: {
               display: true,
-              text: 'Year'
+              text: '년도'
             }
           },
           y: {
             title: {
               display: true,
-              text: 'Number of Students'
+              text: '학생수'
             }
           }
         }
@@ -250,13 +250,17 @@ export default {
     },
     getGroupColor(group) {
         const colors = {
-            B1: '#ced4da',
-            B2: '#6c757d',
+            B1: '#495057',
+            B2: '#6C757D',
+            B1AV: '#495057',
+            B1BF: '#343A40',
+            B2AV: '#6C757D',
+            B2BF: '#595959'
         };
         return colors[group] || '#999999';
     },
     getHighlightColor(group) {
-        return '#e9ecef';
+        return '#ADB5BD';
     }
   },
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="stage" style="background-color: #d6ccc2;">
+    <div class="stage" style="background-color: #edede9;">
         <div class="fade-in">
         <div class="title-section main-font">
             <h1>1 단계: UHR 가입하기</h1>
@@ -40,7 +40,7 @@
         </div>
         </div>
     </div>
-    <div class="stage" style="background-color: #e3d5ca;">
+    <div class="stage" style="background-color: #dee2e6;">
         <div class="fade-in">
         <div class="title-section main-font">
             <h1>2 단계: 학과 선택하기</h1>
@@ -54,7 +54,7 @@
         </div>
         </div>
     </div>
-    <div class="stage" style="background-color: #d6ccc2;">
+    <div class="stage" style="background-color: #edede9;">
         <div class="fade-in">
         <div class="title-section main-font">
             <h1>3 단계: 학과 우선 순위 정하기</h1>
@@ -76,7 +76,7 @@
         </div>
         </div>
     </div>
-    <div class="stage" style="background-color: #e3d5ca;">
+    <div class="stage" style="background-color: #dee2e6;">
         <div class="fade-in">
         <div class="title-section main-font">
             <h1>4 단계: 서류 제출</h1>
@@ -89,7 +89,7 @@
         </div>
         </div>
     </div>
-    <div class="stage" style="background-color: #d6ccc2;">
+    <div class="stage" style="background-color: #edede9;">
         <div class="fade-in">
         <div class="title-section main-font">
             <h1>5 단계: 지원비 지불하기</h1>
@@ -155,11 +155,13 @@
     width: 35em;
     height: 25em;
     border-radius: 1.5em;
-    background-color: #e3d5ca;
+    background-color: #CED4DA;
     margin: 1em;
     margin-top: 2em;
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+
 }
 
 .title-section {
