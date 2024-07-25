@@ -3,7 +3,10 @@
         <div :style="upperLayerStyle" class="upper-layer">
             <div class="explain-header third-font">
                 <h1>대학교 검색</h1>
-                <p class="caption-font">스웨덴에 존재하는 대학교에 대해서 검색해보세요</p>
+                <p class="caption-font">
+                    스웨덴에 존재하는 대학교에 대해서 검색해보세요 <br>
+                    한정된 작업시간으로 인해 스웨덴 메이저 5개 대학만 서비스 중입니다.
+                </p>
             </div>
             <div class="search-bar-wrapper">
                 <div class="search-bar">
@@ -31,7 +34,7 @@
                         <h3>{{ university.name }}</h3>
                     </div>
                     <div class="card-lower">
-                        <button class="like-button" @click="like(index)">
+                        <button class="like-button btn" @click="like(index)">
                             <fa :icon="university.userLiked ? 'heart' : 'fa-regular fa-heart'" />
                         </button>
                         <div class="like-number">
@@ -84,6 +87,7 @@
     padding: 0 1em;
     transform: translateY(3.5em);
     z-index: 1;
+    gap: 0.5rem;
 }
 
 .search-bar {
@@ -100,7 +104,7 @@
 .lower-layer {
     height: 80vh;
     width: 100%;
-    background-color: #e3d5ca;
+    background-color: #edede9;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,15 +119,17 @@
     justify-content: center;
     align-items: center;
     margin: 1em;
-    background-color: #6c757d;
-    border-radius: 1em;
+    background-color: #d6ccc2;
+    border-radius: 0.5em;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+
 }
 
 .card-upper {
     height: 70%;
     width: 98%;
     margin-top: 1%;
-    border-radius: 1em;
+    border-radius: 0.6em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -138,7 +144,6 @@
 }
 
 .like-button {
-    background-color: #6c757d;
     border: none;
     cursor: pointer;
     font-size: 1.5em;
@@ -149,7 +154,7 @@
 .like-number {
     display: flex;
     align-items: center;
-    margin-top: 0.8%;
+    margin-top: 13%;
 }
 
 .like-button .liked {

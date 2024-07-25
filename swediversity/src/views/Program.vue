@@ -16,8 +16,17 @@
     </div>
     <div class="explanation">
         <div class="explanation-about fade-in">
-            <h1 class="main-font" style="cursor: pointer;" @click="pushToReview()">학과 생활은 어떻나요??</h1>
-            <p>실제 학과 학생들이 작성한 게시물을 읽어보세요.</p>
+            <h1 class="main-font" style="cursor: pointer;">학과 생활은 어떻나요??</h1>
+            <div class="explanation-box-wrapper">
+            <div class="box">
+                <div class="box-header third-font">
+                  <h2>학생 게시물</h2>
+                </div>
+                <div class="box-content"  @click="pushToReview()">
+                  <p>학생들이 작성한 게시물을 읽어보세요.</p>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
     <div class="explanation">

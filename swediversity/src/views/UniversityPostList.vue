@@ -95,9 +95,11 @@
     width: 70em;
     height: 2.5em;
     border-radius: 0.5rem;
-    background-color:grey;
+    background-color:#A4A9AE;
     justify-content: center;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
 }
 
 .post-title {
@@ -106,7 +108,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: solid white;
+    border-right: solid #f8f9fa;
+    
 }
 
 .post-type {
@@ -114,7 +117,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: solid white;
+    border-right: solid #f8f9fa;
 }
 
 .post-date {
@@ -122,7 +125,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: solid white;
+    border-right: solid #f8f9fa;
 }
 
 .post-likes {
@@ -130,7 +133,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: solid white;
+    border-right: solid #f8f9fa;
 }
 
 .post-views {

@@ -1,5 +1,5 @@
 <template>
-    <div class="stage" style="background-color: #e3d5ca;">
+    <div class="stage" style="background-color: #edede9;">
         <div class="fade-in">
         <div class="title-section main-font">
             <h1>시작하기 전에...</h1>
@@ -13,7 +13,7 @@
         </div>
         </div>
     </div>
-    <div class="stage" style="background-color: #d6ccc2;">
+    <div class="stage" style="background-color: #dee2e6;">
         <div class="fade-in">
         <div class="title-section main-font">
             <h1>고등학교 졸업장</h1>
@@ -48,7 +48,7 @@
         </div>
         </div>
     </div>
-    <div class="stage" style="background-color: #e3d5ca;">
+    <div class="stage" style="background-color: #edede9;">
         <div class="fade-in">
         <div class="title-section main-font">
             <h1>영어 조건</h1>
@@ -99,7 +99,7 @@
         </div>
         </div>
     </div>
-    <div class="stage" style="background-color: #d6ccc2;">
+    <div class="stage" style="background-color: #dee2e6;">
         <div class="fade-in">
         <div class="title-section main-font">
             <h1>여권 사본</h1>
@@ -111,7 +111,7 @@
         </div>
         </div>
     </div>
-    <div class="stage" style="background-color: #e3d5ca;">
+    <div class="stage" style="background-color: #edede9;">
         <div class="fade-in">
         <div class="title-section main-font">
             <h1>과거 대학교 기록 (선택사항)</h1>

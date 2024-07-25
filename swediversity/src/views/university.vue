@@ -7,12 +7,15 @@
   <div :style="{ backgroundImage: `url(${imageUrl})` }" class="photo-section">
     <h1 class="main-font">{{ universityName }}</h1>
   </div>
-  
   <div class="explanation">
+    <div class="header">
+      <h2 class="third-font">대학 정보</h2>
+      <p class="caption-font">다음 대학교에 대한 기본적인 정보입니다.</p>
+    </div>
     <div class="row">
       <div class="col">
         <div class="box">
-          <div class="box-content">
+          <div class="box-content city-image">
             <h5 class="box-title main-font">도시 정보</h5>
             <h5 class="box-title-story caption-font">
               어떻게 돌아다닐지... <br>
@@ -25,7 +28,7 @@
       </div>
       <div class="col">
         <div class="box">
-          <div class="box-content" @click="pushToReview()">
+          <div class="box-content student-image" @click="pushToReview()">
             <h5 class="box-title main-font">학생 후기</h5>
             <h5 class="box-title-story caption-font">
               학교에 대한 경험은 어땠는지... <br>
@@ -38,7 +41,7 @@
       </div>
       <div class="col">
         <div class="box">
-          <div class="box-content">
+          <div class="box-content housing-image">
             <h5 class="box-title main-font">기숙사 정보</h5>
             <h5 class="box-title-story caption-font">
               어떤 방에서 지낼지... <br>
@@ -52,6 +55,10 @@
     </div>
   </div>
   <div class="program-explanation">
+    <div class="header">
+      <h2 class="third-font">학과</h2>
+      <p class="caption-font">다음 대학교에서 지원할 수 있는 영어로 진행되는 학과 입니다.</p>
+    </div>
     <div v-for="(program, index) in programNames" :key="index" class="card-wrapper">
       <div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
         <div class="card-body" @click="pushToProgram(this.uniName, program.name)">
@@ -126,10 +133,33 @@
   width: 60%;
   height: 70%;
   background-color: #f0f0f0;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
+}
+
+.header {
+  width: 100%;
+  height: 8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-image {
+  background-image: url('../assets/studentReview.jpg');
+}
+
+.city-image {
+  background-image: url('../assets/Stockholm_view.jpg');
+  background-size: 170% 100%;
+}
+
+.housing-image {
+  background-image: url('../assets/housing.jpg');
+  background-size: 100% 100%;
 }
 
 .box-content {

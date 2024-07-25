@@ -7,11 +7,11 @@
             <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">작성한 리뷰</button>
           </div>
         <div class="offcanvas offcanvas-start w-75" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header">
+            <div class="offcanvas-header" style="background-color: #dee2e6;">
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">학과 리뷰</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
+        <div class="offcanvas-body" style="background-color: #e9ecef;">
             <h2 class="third-font">학과 리뷰 작성하기</h2>
             <div class="caption-font">
                 현재 재학중이거나 이미 졸업한 스웨덴 대학교의 학과에 대한 리뷰를 남겨주세요. <br>
@@ -70,11 +70,11 @@
         </div>
     </div>
     <div class="offcanvas offcanvas-end w-75" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-      <div class="offcanvas-header">
+      <div class="offcanvas-header" style="background-color: #dee2e6;">
         <h5 class="offcanvas-title" id="offcanvasRightLabel">작성한 리뷰</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body">
+      <div class="offcanvas-body" style="background-color: #e9ecef;">
         <h2 class="third-font">대학교 리뷰 작성하기</h2>
         <div class="caption-font">
           현재까지 작성하신 모든 게시물을 조회할 수 있습니다. <br>
@@ -147,9 +147,9 @@
     height: 15%;
     margin: 1em;
     padding: 1em;
-    background-color: grey;
-    border-radius: 1em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #A4A9AE;
+    border-radius: 0.5em;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
 
 .post-body {
@@ -160,9 +160,10 @@
     width: 80%;
     height: 60%;
     margin: 1em;
-    background-color: grey;
-    border-radius: 1em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #A4A9AE;
+    border-radius: 0.5em;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+
 }
 
 .editor-content {
@@ -170,10 +171,11 @@
   height: 50%;
   width: 80%;
   overflow-y: auto;
-  background-color: white;
+  background-color: #f8f9fa;
   border-radius: 0.2em;
   position: relative;
   top: 0;
+
 }
 
 .markdown-edit {
@@ -200,10 +202,9 @@
   width: 40em;
   height: 20em;
   border-radius: 1em;
-  background-color: grey;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  background-color: #A4A9AE;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
-
 .content-box-header {
   display: flex;
   flex-direction: column;
@@ -217,18 +218,12 @@
 
 .content-box-body {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
   height: 12.5em;
   width: 100%;
+  overflow-y: hidden;
+  padding: 1em;
   border-bottom-style: solid;
   border-bottom-color: white;
-  text-overflow: ellipsis;
-  white-space: normal;
-
 }
 
 .content-box-footer {
@@ -264,7 +259,6 @@ h1,
   h6 {
     font-size: 1rem;
   }
-
 </style>
 
 <script>

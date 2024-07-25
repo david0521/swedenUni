@@ -3,7 +3,10 @@
         <div :style="upperLayerStyle" class="upper-layer">
             <div class="explain-header third-font">
                 <h1>학과 검색</h1>
-                <p class="caption-font">스웨덴 대학교에 존재하는 학과에 대해서 검색해보세요</p>
+                <p class="caption-font">
+                    스웨덴 대학교에 존재하는 학과에 대해서 검색해보세요. <br>
+                    현재, 한정된 작업시간으로 인해, 5개 대학에 대해서만 서비스중입니다.
+                </p>
             </div>
             <div class="search-bar-wrapper">
                 <div class="search-bar">
@@ -138,20 +141,21 @@
 .lower-layer {
     height: auto;
     width: 100%;
-    background-color: #e3d5ca;
+    background-color: #edede9;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .search-option-wrapper {
-    height: 35vh;
+    height: 20em;
     width: 80%;
     display: flex;
     flex-direction: column;
     margin-top: 3em;
-    border-radius: 2em;
+    border-radius: 0.8em;
     background-color: #d6ccc2;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 .search-option-header {
@@ -203,6 +207,7 @@
     margin: 1em;
     background-color: #d6ccc2;
     border-radius: 0.5em;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
 .card-upper {

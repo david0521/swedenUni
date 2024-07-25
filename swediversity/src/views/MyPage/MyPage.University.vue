@@ -23,13 +23,13 @@
             <div class="bottom-part">
                 <div class="section-title third-font">
                 </div>
-                <div v-for="(university, index) in universityNames" :key="index" class="card-wrapper">
+                <div v-for="(university, index) in universityNames" :key="index">
                     <div class="university-card">
                         <div class="university-card-inner" @click="pushToUniversity(university)">
                             <h3>{{ university }}</h3>
                         </div>
                         <div class="university-card-down">
-                            <button class="like-button" @click="like(index)">
+                            <button class="like-button btn btn-sm" @click="like(index)">
                                 <fa :icon="isliked(index) ? 'heart' : 'fa-regular fa-heart'" />
                             </button>
                             <div class="like-number">
@@ -89,6 +89,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .bottom-part {
@@ -99,43 +100,38 @@
     align-items: center;
     flex-direction: column;
     background-color: #e3d5ca;
+    min-height: 50vh;
+    gap: 2em;
 }
 
 .section-title {
     margin-top: 2.5%
 }
 
-.card-wrapper {
-    width: 70em;
-    height: 20em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .university-card {
-    width: 90%;
-    height: 70%;
-    background-color: #6c757d;
-    border-radius: 15px;
+    width: 50em;
+    height: 10em;
+    background-color: #d6ccc2;
+    border-radius: 0.5em;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+
 }
 
 .university-card-inner {
-    width: 95%;
-    height: 60%;
+    height: 70%;
+    width: 98%;
+    margin-top: 1%;
+    border-radius: 0.6em;
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
-    background-color: #edede9;
-    margin-bottom: 2%;
-    border-radius: 15px;
-    padding: 1em;
-    text-align: center;
+    align-items: center;
     cursor: pointer;
+    background-color: #edede9;
 }
 
 .university-card-down {
@@ -146,7 +142,6 @@
 }
 
 .like-button {
-    background-color: #6c757d;
     border: none;
     cursor: pointer;
     font-size: 2em;

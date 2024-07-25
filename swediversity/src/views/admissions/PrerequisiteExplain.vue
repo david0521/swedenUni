@@ -1,5 +1,5 @@
 <template>
-    <div class="stage" style="background-color: #e3d5ca;">
+    <div class="stage" style="background-color: #edede9;">
         <div class="fade-in">
         <div class="title-section main-font">
             <h1>시작하기 전에...</h1>
@@ -20,7 +20,7 @@
         </div>
         </div>
     </div>
-    <div class="stage" style="background-color: #d6ccc2;">
+    <div class="stage" style="background-color: #dee2e6;">
         <div class="fade-in">
         <div class="title-section main-font">
             <h1>수학 영역</h1>
@@ -67,7 +67,7 @@
         </div>
         </div>
     </div>
-    <div class="stage" style="background-color: #e3d5ca;">
+    <div class="stage" style="background-color: #edede9;">
         <div class="fade-in">
         <div class="title-section main-font">
             <h1>과학 영역</h1>
@@ -120,7 +120,7 @@
         </div>
         </div>
     </div>
-    <div class="stage" style="background-color: #d6ccc2;">
+    <div class="stage" style="background-color: #dee2e6;">
         <div class="fade-in">
         <div class="title-section main-font">
             <h1>문과 영역</h1>

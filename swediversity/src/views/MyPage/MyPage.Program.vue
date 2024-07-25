@@ -21,13 +21,15 @@
                 </div>
             </div>
             <div class="bottom-part">
-                <div v-for="(program, index) in programNames" :key="index" class="card-wrapper">
+                <div class="section-title third-font">
+                </div>
+                <div v-for="(program, index) in programNames" :key="index">
                     <div class="program-card">
                         <div class="program-card-inner" @click="pushToProgram(programUniversity[index], program)">
                             <h3>{{ program }}</h3>
                         </div>
                         <div class="program-card-down">
-                            <button class="like-button" @click="like(index)">
+                            <button class="like-button btn btn-sm" @click="like(index)">
                                 <fa :icon="isliked(index) ? 'heart' : 'fa-regular fa-heart'" />
                             </button>
                             <div class="like-number">
@@ -87,6 +89,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .bottom-part {
@@ -97,41 +100,38 @@
     align-items: center;
     flex-direction: column;
     background-color: #e3d5ca;
+    min-height: 50vh;
+    gap: 2em;
 }
 
 .section-title {
-    margin-top: 1%
-}
-
-.card-wrapper {
-    width: 70em;
-    height: 20em;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
+    margin-top: 2.5%
 }
 
 .program-card {
-    width: 90%;
-    height: 70%;
-    background-color: grey;
-    border-radius: 15px;
+    width: 50em;
+    height: 10em;
+    background-color: #d6ccc2;
+    border-radius: 0.5em;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+
 }
 
 .program-card-inner {
-    width: 95%;
-    height: 60%;
-    background-color: white;
-    margin-bottom: 0;
-    border-radius: 15px;
-    padding: 1em;
-    text-align: center;
+    height: 70%;
+    width: 98%;
+    margin-top: 1%;
+    border-radius: 0.6em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #edede9;
 }
 
 .program-card-down {
@@ -142,7 +142,6 @@
 }
 
 .like-button {
-    background-color: grey;
     border: none;
     cursor: pointer;
     font-size: 2em;
