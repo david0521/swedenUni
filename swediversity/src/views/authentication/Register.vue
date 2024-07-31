@@ -174,7 +174,7 @@
         async checkDuplicate() {
             this.idErrorMessage = ''
             try {
-                const response = await axios.get(`http://localhost:3000/api/auth/userName/${this.username}`);
+                const response = await axios.get(`http://51.13.63.57/api/auth/userName/${this.username}`);
                 this.duplicateMessage = response.data.message;
                 if (this.duplicateMessage == "사용가능한 아이디입니다.") {
                     this.duplicateStatus = false;

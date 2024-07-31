@@ -135,7 +135,7 @@
         },
         async login() {
             try {
-                const response = await axios.post('http://localhost:3000/api/auth/login', {
+                const response = await axios.post('http://51.13.63.57/api/auth/login', {
                     email: this.email,
                     password: this.password
                 });

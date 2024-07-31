@@ -1,4 +1,21 @@
 <template>
+    <div class="modal fade" id="alert" tabindex="-1" aria-labelledby="alertLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="alertLabel">게시물 삭제</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            해당 게시물을 삭제하시겠습니까?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @click="deletePost()">삭제</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div :style="{ backgroundImage: `url(${imageUrl})` }" class="photo-section">
         <h1 class="main-font">{{ universityName }}</h1>
         <h2 class="caption-font" style="font-weight: bold;">{{ programName }}</h2>
@@ -65,7 +82,12 @@
                     <EditorContent :editor="editor" />
                   </div>
                 </div>
-                <button type="button" class="btn btn-secondary" @click="postContent()">작성</button>
+                <div class="lower">
+                  <button type="button" class="btn btn-secondary" style="width: 10em;" @click="postContent()">작성</button>
+                    <div v-if="message != null">
+                      {{ message }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -90,7 +112,7 @@
                         <p v-html="content.content"></p>
                       </div>
                       <div class="content-box-footer">
-                        <button type="button" class="btn btn-lg" @click="deletePost(content._id)">
+                        <button type="button" class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#alert" @click="setDeleteId(content._id)">
                           <fa :icon="['fas', 'trash-can']" />
                         </button>
                       </div>
@@ -314,14 +336,16 @@ export default {
       contentTitle: '',
       postType: '',
       postTypes: ['학과생활', '학업', '학생문화', '지원과정'],
-      contents: []
+      contents: [],
+      deleteId: '',
+      message: ''
     }
   },
   methods: {
     async getProgramName() {
         try {
             const userId = localStorage.getItem('userId');
-            const response = await axios.get(`http://localhost:3000/api/users/id/${userId}`);
+            const response = await axios.get(`http://51.13.63.57/api/users/id/${userId}`);
 
             const program = response.data.studyingProgram;
             const university = response.data.studyingUniversity;
@@ -340,8 +364,9 @@ export default {
 
     async postContent() {
       try {
+        this.message = null;
         const userId = localStorage.getItem('userId');
-        const response = axios.post(`http://localhost:3000/api/posts/contentType/programReview/userId/${userId}`,
+        const response = await axios.post(`http://51.13.63.57/api/posts/contentType/programReview/userId/${userId}`,
           {
             title: this.contentTitle,
             category: this.postType,
@@ -350,16 +375,19 @@ export default {
           }
         )
 
+        this.message = response.data.message;
+
         console.log(response);
       } catch (err) {
         console.error(err);
+        this.message = err.response.data.error;
       }
     },
 
     async getContents() {
       try {
         const userId = localStorage.getItem('userId');
-        const response = await axios.get(`http://localhost:3000/api/posts/userId/${userId}?type=ProgramPost`)
+        const response = await axios.get(`http://51.13.63.57/api/posts/userId/${userId}?type=ProgramPost`)
 
         const contents = response.data.contents
 
@@ -371,14 +399,17 @@ export default {
       }
     },
 
-    async deletePost(contentId) {
+    async deletePost() {
       try {
-        const response = await axios.delete(`http://localhost:3000/api/posts/contentId/${contentId}`)
+        const response = await axios.delete(`http://51.13.63.57/api/posts/contentId/${this.deleteId}`)
 
         await this.getContents();
       } catch (err) {
         console.error(err);
       }
+    },
+    setDeleteId (id) {
+      this.deleteId = id;
     }
 
   },

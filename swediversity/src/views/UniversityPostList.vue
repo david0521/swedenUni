@@ -159,7 +159,7 @@ export default {
         async fetchPosts() {
             try {
                 const uniName = this.$route.params.uniName;
-                const response = await axios.get(`http://localhost:3000/api/posts/uniPost?uniName=${uniName}`);
+                const response = await axios.get(`http://51.13.63.57/api/posts/uniPost?uniName=${uniName}`);
                 
                 this.posts = response.data.post;
 
