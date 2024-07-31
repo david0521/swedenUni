@@ -199,15 +199,15 @@ export default {
                  let response;
 
                  if (!this.uniName && !this.cityName) {
-                    response = await axios.get('http://localhost:3000/api/universities')
+                    response = await axios.get('http://51.13.63.57/api/universities')
                  }
 
                  else if ((this.uniName && !this.cityName) || (this.uniName && this.cityName)) {
                     const encodedUniName = encodeURIComponent(this.uniName);
-                    response = await axios.get(`http://localhost:3000/api/universities/name/${encodedUniName}`)
+                    response = await axios.get(`http://51.13.63.57/api/universities/name/${encodedUniName}`)
 
                  } else {
-                    response = await axios.get(`http://localhost:3000/api/universities/byCity?city=${this.cityName}`)
+                    response = await axios.get(`http://51.13.63.57/api/universities/byCity?city=${this.cityName}`)
                  }
 
                  console.log(response)
@@ -252,7 +252,7 @@ export default {
                 const requests = universityNames.map(async (uniName) => {
                     try {
                         const encodedUniName = encodeURIComponent(uniName);
-                        const response = await axios.get(`http://localhost:3000/api/universities/prospective/university?university=${encodedUniName}`);
+                        const response = await axios.get(`http://51.13.63.57/api/universities/prospective/university?university=${encodedUniName}`);
                         return { name: uniName, likes: response.data.message };
                     } catch (err) {
                         console.error('Failed to fetch likes:', err)
@@ -278,7 +278,7 @@ export default {
                 axios.defaults.headers.common['Authorization'] = `${token}`;
 
                 const userId = localStorage.getItem('userId');
-                const response = await axios.get(`http://localhost:3000/api/users/${userId}/prospective/universities`);
+                const response = await axios.get(`http://51.13.63.57/api/users/${userId}/prospective/universities`);
 
                 const likedUniversities = response.data.universities;
 
@@ -300,7 +300,7 @@ export default {
                 let response;
                 
                 if (currentLikeStatus) {
-                    response = axios.delete(`http://localhost:3000/api/users/${userId}/universities`, 
+                    response = axios.delete(`http://51.13.63.57/api/users/${userId}/universities`, 
                         {
                             data: {
                                 universities: universityId
@@ -314,7 +314,7 @@ export default {
                 }
 
                 else {
-                    response = axios.post(`http://localhost:3000/api/users/${userId}/universities`, {
+                    response = axios.post(`http://51.13.63.57/api/users/${userId}/universities`, {
                         universities: universityId
                     })
 

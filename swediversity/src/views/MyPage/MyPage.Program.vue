@@ -192,7 +192,7 @@ export default {
                 axios.defaults.headers.common['Authorization'] = `${token}`;
 
                 const userId = localStorage.getItem('userId');
-                const response = await axios.get(`http://localhost:3000/api/users/${userId}/prospective/programs`);
+                const response = await axios.get(`http://51.13.63.57/api/users/${userId}/prospective/programs`);
 
                 console.log(response)
 
@@ -215,7 +215,7 @@ export default {
                 const requests = programNames.map(async (programName) => {
                 try {
                     const encodedProgramName = encodeURIComponent(programName);
-                    const response = await axios.get(`http://localhost:3000/api/programs/prospective/program?program=${encodedProgramName}`);
+                    const response = await axios.get(`http://51.13.63.57/api/programs/prospective/program?program=${encodedProgramName}`);
                     return { name: programName, likes: response.data.message };
                 } catch (error) {
                     console.error(`Failed to fetch likes for ${programName}:`, error);
@@ -246,7 +246,7 @@ export default {
                 // Delete university if the user unlikes it
                 if (currentLikeStatus == true) {
                     const userId = localStorage.getItem('userId');
-                    const response = axios.delete(`http://localhost:3000/api/users/${userId}/programs`, 
+                    const response = axios.delete(`http://51.13.63.57/api/users/${userId}/programs`, 
                         {
                             data: {
                                 programs: programId

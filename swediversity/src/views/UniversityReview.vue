@@ -1,4 +1,21 @@
 <template>
+    <div class="modal fade" id="alert" tabindex="-1" aria-labelledby="alertLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="alertLabel">게시물 삭제</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            해당 게시물을 삭제하시겠습니까?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @click="deletePost()">삭제</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div :style="{ backgroundImage: `url(${imageUrl})` }" class="photo-section">
         <h1 class="main-font">{{ universityName }}</h1>
         <div class="button-wrapper">
@@ -64,7 +81,12 @@
                     <EditorContent :editor="editor" />
                   </div>
                 </div>
-                <button type="button" class="btn btn-secondary" @click="postContent()">작성</button>
+                <div class="lower">
+                  <button type="button" class="btn btn-secondary" style="width: 10em;" @click="postContent()">작성</button>
+                    <div v-if="message != null">
+                      {{ message }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -89,12 +111,12 @@
                         <p v-html="content.content"></p>
                       </div>
                       <div class="content-box-footer">
-                        <button type="button" class="btn btn-lg" @click="deletePost(content._id)">
+                        <button type="button" class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#alert" @click="setDeleteId(content._id)">
                           <fa :icon="['fas', 'trash-can']" />
                         </button>
                       </div>
                     </div>
-                 </div>
+                  </div>
                 </div>
             </div>
       </div>
@@ -172,8 +194,6 @@
   overflow-y: auto;
   background-color: #f8f9fa;
   border-radius: 0.2em;
-  position: relative;
-  top: 0;
 
 }
 
@@ -232,6 +252,12 @@
   height: 3em;
 }
 
+.lower {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
 h1,
   h2,
   h3,
@@ -258,6 +284,8 @@ h1,
   h6 {
     font-size: 1rem;
   }
+
+  
 
 </style>
 
@@ -314,7 +342,9 @@ export default {
       contentTitle: '',
       postType: '',
       postTypes: ['대학생활', '캠퍼스', '학생문화'],
-      contents: []
+      contents: [],
+      message: '',
+      deleteId: ''
     }
   },
   methods: {
@@ -339,8 +369,9 @@ export default {
 
     async postContent() {
       try {
+        this.message = null;
         const userId = localStorage.getItem('userId');
-        const response = axios.post(`http://localhost:3000/api/posts/contentType/universityReview/userId/${userId}`,
+        const response = await axios.post(`http://localhost:3000/api/posts/contentType/universityReview/userId/${userId}`,
           {
             title: this.contentTitle,
             category: this.postType,
@@ -349,22 +380,29 @@ export default {
           }
         )
 
+        this.message = response.data.message;
+
         await this.getContents();
 
-        console.log(response);
       } catch (err) {
         console.error(err);
+        this.message = err.response.data.error;
+        console.log(this.message);
+
       }
     },
 
     async getContents() {
       try {
+        this.message = null;
         const userId = localStorage.getItem('userId');
-        const response = await axios.get(`http://localhost:3000/api/posts/userId/${userId}?type=UniversityPost`)
+        const response = await axios.get(`http://51.13.63.57/api/posts/userId/${userId}?type=UniversityPost`)
 
         const contents = response.data.contents
 
-        console.log(contents)
+        if (contents.length === 0) {
+          this.message = '작성한 게시물이 없습니다.'
+        }
 
         this.contents = contents;
       } catch (err) {
@@ -372,14 +410,18 @@ export default {
       }
     },
 
-    async deletePost(contentId) {
+    async deletePost() {
       try {
-        const response = await axios.delete(`http://localhost:3000/api/posts/contentId/${contentId}`)
+        const response = await axios.delete(`http://51.13.63.57/api/posts/contentId/${this.deleteId}`)
 
         await this.getContents();
       } catch (err) {
         console.error(err);
       }
+    },
+    
+    setDeleteId (id) {
+    this.deleteId = id;
     }
 
   },

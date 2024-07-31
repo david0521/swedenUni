@@ -13,7 +13,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/search/program">학과 검색</a></li>
-            <li><a class="dropdown-item" href="#">학과 관심 순위</a></li>
+            <li><a class="dropdown-item disabled" aria-disabled="true" href="#">학과 관심 순위</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown ms-5">
@@ -22,7 +22,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/search/university">대학교 검색</a></li>
-            <li><a class="dropdown-item" href="#">대학교 관심 순위</a></li>
+            <li><a class="dropdown-item disabled" aria-disabled="true" href="#">대학교 관심 순위</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown ms-5">
@@ -33,7 +33,7 @@
             <li><a class="dropdown-item" href="/admissions/process">지원 과정</a></li>
             <li><a class="dropdown-item" href="/admissions/documents">구비 서류</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">메리트 점수 설명</a></li>
+            <li><a class="dropdown-item disabled" aria-disabled="true" href="#">메리트 점수 설명</a></li>
             <li><a class="dropdown-item" href="/admissions/prerequisites/explain">선수강 요건 설명</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/admissions/prerequisites/change">선수강 요건 수정</a></li>

@@ -164,7 +164,7 @@ export default {
     async fetchStatistics() {
         try {
             const programName = this.$route.params.programName;
-            const response = await axios.get(`http://localhost:3000/api/records/name/${programName}`);
+            const response = await axios.get(`http://51.13.63.57/api/records/name/${programName}`);
             this.allStats = response.data.records
 
             this.updateChartData();
