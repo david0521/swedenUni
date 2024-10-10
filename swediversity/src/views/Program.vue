@@ -187,7 +187,7 @@
       },
       async getProgram() {
         try {
-            const response = await axios.get(`https://51.13.63.57/api/programs/name/${this.programName}`);
+            const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/programs/name/${this.programName}`);
             this.program = response.data.programs[0];
 
         } catch (err) {
@@ -196,7 +196,7 @@
       },
       async getMinMeritPoint() {
         try {
-          const response = await axios.get(`https://51.13.63.57/api/records/name/${this.programName}/avg`)
+          const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/records/name/${this.programName}/avg`)
           this.avgRecords = response.data.stats;
 
         } catch (err) {

@@ -69,7 +69,7 @@
     methods: {
       async addUniversity() {
         try {
-          const response = await axios.post("https://51.13.63.57/api/universities/", {
+          const response = await axios.post("https://swediversity.norwayeast.cloudapp.azure.com/api/universities/", {
               name: this.universityName,
               city: this.universityCity
           });

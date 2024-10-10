@@ -351,7 +351,7 @@ export default {
     async getUniName() {
         try {
             const userId = localStorage.getItem('userId');
-            const response = await axios.get(`https://51.13.63.57/api/users/id/${userId}`);
+            const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/users/id/${userId}`);
 
             const university = response.data.studyingUniversity;
 
@@ -371,7 +371,7 @@ export default {
       try {
         this.message = null;
         const userId = localStorage.getItem('userId');
-        const response = await axios.post(`https://51.13.63.57/api/posts/contentType/universityReview/userId/${userId}`,
+        const response = await axios.post(`https://swediversity.norwayeast.cloudapp.azure.com/api/posts/contentType/universityReview/userId/${userId}`,
           {
             title: this.contentTitle,
             category: this.postType,
@@ -396,7 +396,7 @@ export default {
       try {
         this.message = null;
         const userId = localStorage.getItem('userId');
-        const response = await axios.get(`https://51.13.63.57/api/posts/userId/${userId}?type=UniversityPost`)
+        const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/posts/userId/${userId}?type=UniversityPost`)
 
         const contents = response.data.contents
 
@@ -412,7 +412,7 @@ export default {
 
     async deletePost() {
       try {
-        const response = await axios.delete(`https://51.13.63.57/api/posts/contentId/${this.deleteId}`)
+        const response = await axios.delete(`https://swediversity.norwayeast.cloudapp.azure.com/api/posts/contentId/${this.deleteId}`)
 
         await this.getContents();
       } catch (err) {

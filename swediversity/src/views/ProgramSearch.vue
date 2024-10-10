@@ -312,9 +312,9 @@ export default {
                  console.log(this.selectedPrerequisites)
 
                  if (!this.programName && !this.programType && !this.meritPoint && !this.fee && this.selectedPrerequisites.length === 0) {
-                    response = await axios.get('https://51.13.63.57/api/programs')
+                    response = await axios.get('https://swediversity.norwayeast.cloudapp.azure.com/api/programs')
                  } else if (!this.programType && !this.meritPoint && !this.fee && this.selectedPrerequisites.length === 0) {
-                    response = await axios.get(`https://51.13.63.57/api/programs/name/${this.programName}`)
+                    response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/programs/name/${this.programName}`)
                  }
 
                  else 
@@ -339,7 +339,7 @@ export default {
                         });
                     }
 
-                    response = await axios.get(`https://51.13.63.57/api/programs/search?${params.toString()}`);
+                    response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/programs/search?${params.toString()}`);
                  }
 
                  if (response.data.programs) {
@@ -373,7 +373,7 @@ export default {
                 const requests = programNames.map(async (programName) => {
                     try {
                         const encodedProgramName = encodeURIComponent(programName);
-                        const response = await axios.get(`https://51.13.63.57/api/programs/prospective/program?program=${encodedProgramName}`);
+                        const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/programs/prospective/program?program=${encodedProgramName}`);
                         return { name: programName, likes: response.data.message };
                     } catch (err) {
                         console.error('Failed to fetch likes:', err)
@@ -399,7 +399,7 @@ export default {
                 axios.defaults.headers.common['Authorization'] = `${token}`;
 
                 const userId = localStorage.getItem('userId');
-                const response = await axios.get(`https://51.13.63.57/api/users/${userId}/prospective/programs`);
+                const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/users/${userId}/prospective/programs`);
 
                 const likedPrograms = response.data.programs;
 
@@ -421,7 +421,7 @@ export default {
                 let response;
                 
                 if (currentLikeStatus) {
-                    response = axios.delete(`https://51.13.63.57/api/users/${userId}/programs`, 
+                    response = axios.delete(`https://swediversity.norwayeast.cloudapp.azure.com/api/users/${userId}/programs`, 
                         {
                             data: {
                                 programs: programId
@@ -435,7 +435,7 @@ export default {
                 }
 
                 else {
-                    response = axios.post(`https://51.13.63.57/api/users/${userId}/programs`, {
+                    response = axios.post(`https://swediversity.norwayeast.cloudapp.azure.com/api/users/${userId}/programs`, {
                         programs: programId
                     })
 

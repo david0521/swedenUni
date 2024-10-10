@@ -192,7 +192,7 @@ export default {
                 axios.defaults.headers.common['Authorization'] = `${token}`;
 
                 const userId = localStorage.getItem('userId');
-                const response = await axios.post(`https://51.13.63.57/api/users/modify/${userId}/meritPoint`, {
+                const response = await axios.post(`https://swediversity.norwayeast.cloudapp.azure.com/api/users/modify/${userId}/meritPoint`, {
                     meritPoint: this.merit
                 });
 
@@ -210,7 +210,7 @@ export default {
                 axios.defaults.headers.common['Authorization'] = `${token}`;
 
                 const userId = localStorage.getItem('userId');
-                const response = await axios.post(`https://51.13.63.57/api/users/modify/${userId}/prerequisites`, {
+                const response = await axios.post(`https://swediversity.norwayeast.cloudapp.azure.com/api/users/modify/${userId}/prerequisites`, {
                     prerequisites: this.selectedPrerequisites
                 });
 

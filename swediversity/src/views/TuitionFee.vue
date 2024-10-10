@@ -86,7 +86,7 @@ export default {
       async getTuitionFee() {
         try {
             const programName = this.$route.params.programName;
-            const response = await axios.get(`https://51.13.63.57/api/programs/name/${programName}`);
+            const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/programs/name/${programName}`);
             const cost = response.data.programs[0].tuitionFee;
 
             this.tuitionFee = cost
@@ -96,7 +96,7 @@ export default {
       },
       async getExchange() {
         try {
-            const response = await axios.get(`https://51.13.63.57/api/records/exchange-rate`);
+            const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/records/exchange-rate`);
 
             this.exchangeRate = response.data.exchangeRate
         } catch (err) {

@@ -192,7 +192,7 @@ export default {
                 axios.defaults.headers.common['Authorization'] = `${token}`;
 
                 const userId = localStorage.getItem('userId');
-                const response = await axios.get(`https://51.13.63.57/api/users/${userId}/prospective/programs`);
+                const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/users/${userId}/prospective/programs`);
 
                 console.log(response)
 
@@ -215,7 +215,7 @@ export default {
                 const requests = programNames.map(async (programName) => {
                 try {
                     const encodedProgramName = encodeURIComponent(programName);
-                    const response = await axios.get(`https://51.13.63.57/api/programs/prospective/program?program=${encodedProgramName}`);
+                    const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/programs/prospective/program?program=${encodedProgramName}`);
                     return { name: programName, likes: response.data.message };
                 } catch (error) {
                     console.error(`Failed to fetch likes for ${programName}:`, error);
@@ -246,7 +246,7 @@ export default {
                 // Delete university if the user unlikes it
                 if (currentLikeStatus == true) {
                     const userId = localStorage.getItem('userId');
-                    const response = axios.delete(`https://51.13.63.57/api/users/${userId}/programs`, 
+                    const response = axios.delete(`https://swediversity.norwayeast.cloudapp.azure.com/api/users/${userId}/programs`, 
                         {
                             data: {
                                 programs: programId
@@ -263,7 +263,7 @@ export default {
                 // Like university again if the user presses the like button again
                 else {
                     const userId = localStorage.getItem('userId');
-                    const response = axios.post(`https://localhost:3000/api/users/${userId}/programs`, {
+                    const response = axios.post(`https://swediversity.norwayeast.cloudapp.azure.com/api/users/${userId}/programs`, {
                         programs: programId
                     })
                 }

@@ -191,7 +191,7 @@ export default {
                 axios.defaults.headers.common['Authorization'] = `${token}`;
 
                 const userId = localStorage.getItem('userId');
-                const response = await axios.get(`https://51.13.63.57/api/users/${userId}/prospective/universities`);
+                const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/users/${userId}/prospective/universities`);
 
                 const universityNames = response.data.universities.map(university => university.name);
                 const universityIds = response.data.universities.map(university => university._id);
@@ -209,7 +209,7 @@ export default {
                 const requests = universityNames.map(async (uniName) => {
                 try {
                     const encodedUniName = encodeURIComponent(uniName);
-                    const response = await axios.get(`https://51.13.63.57/api/universities/prospective/university?university=${encodedUniName}`);
+                    const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/universities/prospective/university?university=${encodedUniName}`);
                     return { name: uniName, likes: response.data.message };
                 } catch (error) {
                     console.error(`Failed to fetch likes for ${uniName}:`, error);
@@ -240,7 +240,7 @@ export default {
                 // Delete university if the user unlikes it
                 if (currentLikeStatus == true) {
                     const userId = localStorage.getItem('userId');
-                    const response = axios.delete(`https://51.13.63.57/api/users/${userId}/universities`, 
+                    const response = axios.delete(`https://swediversity.norwayeast.cloudapp.azure.com/api/users/${userId}/universities`, 
                         {
                             data: {
                                 universities: universityId
@@ -257,7 +257,7 @@ export default {
                 // Like university again if the user presses the like button again
                 else {
                     const userId = localStorage.getItem('userId');
-                    const response = axios.post(`https://51.13.63.57/api/users/${userId}/universities`, {
+                    const response = axios.post(`https://swediversity.norwayeast.cloudapp.azure.com/api/users/${userId}/universities`, {
                         universities: universityId
                     })
                 }
