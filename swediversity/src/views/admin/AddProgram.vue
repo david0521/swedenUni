@@ -65,7 +65,7 @@ export default {
   methods: {
     async fetchUniversities() {
       try {
-        const response = await axios.get("http://localhost:3000/api/universities");
+        const response = await axios.get("https://51.13.63.57/api/universities");
         this.universities = response.data.univeristies;
 
       } catch (error) {
@@ -80,7 +80,7 @@ export default {
         } 
         axios.defaults.headers.common['Authorization'] = `${token}`;
 
-        const response = await axios.post("http://localhost:3000/api/programs", {
+        const response = await axios.post("https://51.13.63.57/api/programs", {
           programName: this.programName,
           programCode: this.programCode,
           programDescription: this.programDescription,

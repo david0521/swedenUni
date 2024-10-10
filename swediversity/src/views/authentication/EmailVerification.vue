@@ -106,7 +106,7 @@
     methods: {
         async submit() {
             try {
-                const response = await axios.post('http://51.13.63.57/api/auth/resetPassword/emailRequest', {
+                const response = await axios.post('https://51.13.63.57/api/auth/resetPassword/emailRequest', {
                     email: this.email
                 });
 

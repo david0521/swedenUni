@@ -127,7 +127,7 @@ export default {
                 axios.defaults.headers.common['Authorization'] = `${token}`;
 
                 const userId = localStorage.getItem('userId');
-                const response = await axios.get(`http://51.13.63.57/api/users/id/${userId}`);
+                const response = await axios.get(`https://51.13.63.57/api/users/id/${userId}`);
 
                 console.log(response.data)
 
@@ -147,7 +147,7 @@ export default {
         async registerUni() {
             try {
                 const userId = localStorage.getItem('userId');
-                const response = await axios.post(`http://51.13.63.57/api/users/modify/${userId}/university`, {
+                const response = await axios.post(`https://51.13.63.57/api/users/modify/${userId}/university`, {
                     uniName: this.university
                 })
 
@@ -161,7 +161,7 @@ export default {
         async registerProgram() {
             try {
                 const userId = localStorage.getItem('userId');
-                const response = await axios.post(`http://51.13.63.57/api/users/modify/${userId}/program`, {
+                const response = await axios.post(`https://51.13.63.57/api/users/modify/${userId}/program`, {
                     programName: this.program
                 })
                 console.log(response)

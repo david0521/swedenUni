@@ -89,7 +89,7 @@ export default {
         async fetchPost() {
             try {
                 const postId = this.$route.params.id;
-                const response = await axios.get(`http://51.13.63.57/api/posts/contentId/${postId}`);
+                const response = await axios.get(`https://51.13.63.57/api/posts/contentId/${postId}`);
                 
                 this.post = response.data.post;
 

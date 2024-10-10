@@ -74,7 +74,7 @@
             }
             axios.defaults.headers.common['Authorization'] = `${token}`;
             
-            const response = await axios.post("http://localhost:3000/api/records", {
+            const response = await axios.post("https://51.13.63.57/api/records", {
                 programName: this.programName,
                 minScore: this.minScore,
                 applicants: this.numOfApplicants,
