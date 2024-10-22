@@ -58,7 +58,7 @@
     methods: {
       async fetchPrograms() {
         try {
-          const response = await axios.get("http://localhost:3000/api/programs");
+          const response = await axios.get("https://swediversity.norwayeast.cloudapp.azure.com/api/programs");
           this.programs = response.data.programs;
           console.log(response);
         } catch (error) {
@@ -74,7 +74,7 @@
             }
             axios.defaults.headers.common['Authorization'] = `${token}`;
             
-            const response = await axios.post("http://localhost:3000/api/records", {
+            const response = await axios.post("https://swediversity.norwayeast.cloudapp.azure.com/api/records", {
                 programName: this.programName,
                 minScore: this.minScore,
                 applicants: this.numOfApplicants,

@@ -52,7 +52,7 @@
     methods: {
       async getProgramName() {
         try {
-          const response = await axios.get("http://localhost:3000/api/programs/byUniversity?universityName=University%20of%20Gothenburg");
+          const response = await axios.get("https://swediversity.norwayeast.cloudapp.azure.com/api/programs/byUniversity?universityName=University%20of%20Gothenburg");
           this.programNames = response.data.programs
         } catch (error) {
           console.error("Error fetching program names:", error);

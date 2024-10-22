@@ -225,7 +225,7 @@ export default {
   methods: {
     async getProgramName() {
       try {
-        const response = await axios.get(`http://51.13.63.57/api/programs/byUniversity?universityName=${this.backendIdentifier}`);
+        const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/programs/byUniversity?universityName=${this.backendIdentifier}`);
         this.programNames = response.data.programs;
       } catch (error) {
         console.error("Error fetching program names:", error);

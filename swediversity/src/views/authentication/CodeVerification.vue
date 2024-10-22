@@ -105,7 +105,7 @@
             try {
                 const resetToken = this.$route.params.token;
                 console.log(resetToken)
-                const response = await axios.post('http://51.13.63.57/api/auth/resetPassword', {
+                const response = await axios.post('https://swediversity.norwayeast.cloudapp.azure.com/api/auth/resetPassword', {
                     newPassword: this.password,
                     token: resetToken
                 });

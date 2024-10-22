@@ -126,7 +126,7 @@ export default {
                 axios.defaults.headers.common['Authorization'] = `${token}`;
 
                 const userId = localStorage.getItem('userId');
-                const response = await axios.get(`http://51.13.63.57/api/users/id/${userId}`);
+                const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/users/id/${userId}`);
 
                 console.log(response.data)
 

@@ -135,7 +135,7 @@
         },
         async login() {
             try {
-                const response = await axios.post('http://51.13.63.57/api/auth/login', {
+                const response = await axios.post('https://swediversity.norwayeast.cloudapp.azure.com/api/auth/login', {
                     email: this.email,
                     password: this.password
                 });

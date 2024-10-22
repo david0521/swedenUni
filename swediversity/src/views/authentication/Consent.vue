@@ -146,7 +146,7 @@ export default {
     methods: {
         async submitConsent() {
             if(this.consentGiven) {
-                const response = await axios.post('http://51.13.63.57/api/consents/', {
+                const response = await axios.post('https://swediversity.norwayeast.cloudapp.azure.com/api/consents/', {
                     topic: 'registerAgreement(v1)',
                     collectedData: 'email',
                     timestamp: new Date(),

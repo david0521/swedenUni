@@ -158,7 +158,7 @@ export default {
         async fetchPosts() {
             try {
                 const programName = this.$route.params.programName;
-                const response = await axios.get(`http://51.13.63.57/api/posts/programPost?programName=${programName}`);
+                const response = await axios.get(`https://swediversity.norwayeast.cloudapp.azure.com/api/posts/programPost?programName=${programName}`);
                 
                 this.posts = response.data.post;
 
